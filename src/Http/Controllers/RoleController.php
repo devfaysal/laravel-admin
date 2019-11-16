@@ -14,14 +14,14 @@ class RoleController extends Controller
     {
         $roles = Role::all();
 
-        return view('admin.roles.index', [
+        return view('laravel-admin::roles.index', [
             'roles' => $roles
         ]);
     }
 
     public function show(Role $role)
     {
-        return view('admin.roles.show', [
+        return view('laravel-admin::roles.show', [
             'role' => $role,
         ]);
     }
@@ -29,7 +29,7 @@ class RoleController extends Controller
     public function create()
     {
         $permissions = Permission::all();
-        return view('admin.roles.create', [
+        return view('laravel-admin::roles.create', [
             'permissions' => $permissions
         ]);
     }
@@ -55,7 +55,7 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         $permissions = Permission::all();
-        return view('admin.roles.edit', [
+        return view('laravel-admin::roles.edit', [
             'role' => $role,
             'permissions' => $permissions
         ]);

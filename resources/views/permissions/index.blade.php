@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
     <div class="row sameheight-container">

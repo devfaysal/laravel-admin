@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         $users = auth()->user()->hasPermissionTo('manage_trashed_users') ? User::withTrashed()->get() : User::all();
 
-        return view('admin.users.index', [
+        return view('laravel-admin::users.index', [
 
             'users' => $users
 
@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return view('admin.users.show', [
+        return view('laravel-admin::users.show', [
 
             'user' => $user
 
@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         $permissions = Permission::all();
         $roles = Role::all();
-        return view('admin.users.create', [
+        return view('laravel-admin::users.create', [
             'roles' => $roles,
             'permissions' => $permissions
         ]);
@@ -75,7 +75,7 @@ class UserController extends Controller
     {
         $permissions = Permission::all();
         $roles = Role::all();
-        return view('admin.users.edit', [
+        return view('laravel-admin::users.edit', [
             'user' => $user,
             'roles' => $roles,
             'permissions' => $permissions

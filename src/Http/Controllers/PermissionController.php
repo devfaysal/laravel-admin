@@ -13,14 +13,14 @@ class PermissionController extends Controller
     {
         $permissions = Permission::all();
 
-        return view('admin.permissions.index', [
+        return view('laravel-admin::permissions.index', [
             'permissions' => $permissions
         ]);
     }
 
     public function create()
     {
-        return view('admin.permissions.create');
+        return view('laravel-admin::permissions.create');
     }
 
     public function store(Request $request)
