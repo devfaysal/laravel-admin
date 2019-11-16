@@ -1,5 +1,9 @@
 # Roles/Permission UI for Laravel Application
 
+### Following packages/Libraries used
+- [Laravel Permission by Spatie](https://github.com/spatie/laravel-permission)
+- [Modular Admin Html](https://github.com/modularcode/modular-admin-html)
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/devfaysal/laravel-admin.svg?style=flat-square)](https://packagist.org/packages/devfaysal/laravel-admin)
 [![Build Status](https://img.shields.io/travis/devfaysal/laravel-admin/master.svg?style=flat-square)](https://travis-ci.org/devfaysal/laravel-admin)
 [![Quality Score](https://img.shields.io/scrutinizer/g/devfaysal/laravel-admin.svg?style=flat-square)](https://scrutinizer-ci.com/g/devfaysal/laravel-admin)
