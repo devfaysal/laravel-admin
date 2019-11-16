@@ -15,9 +15,9 @@ You can install the package via composer:
 composer require devfaysal/laravel-admin
 ```
 
-Then add the following middleware to the ```php $routeMiddleware ``` array in ```php app/Http/kernel.php ```
+Then add the following middleware to the ``` $routeMiddleware ``` array in ``` app/Http/kernel.php ```
 
-Add ```php use HasRoles, SoftDeletes ``` in user model
+Add ``` use HasRoles, SoftDeletes ``` in user model
 
 Publish Assets
 ```bash
@@ -60,7 +60,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email devfaysal@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email hello@faysal.me instead of using the issue tracker.
 
 ## Credits
 
@@ -70,7 +70,3 @@ If you discover any security related issues, please email devfaysal@gmail.com in
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
