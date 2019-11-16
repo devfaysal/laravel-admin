@@ -1,0 +1,55 @@
+{
+    "name": "devfaysal/laravel-admin",
+    "description": "Admin Dashboard for Laravel project",
+    "keywords": [
+        "devfaysal",
+        "laravel-admin"
+    ],
+    "homepage": "https://github.com/devfaysal/laravel-admin",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Faysal Ahamed",
+            "email": "devfaysal@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "^6.0",
+        "spatie/laravel-permission": "^3.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "4.*",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devfaysal\\LaravelAdmin\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Devfaysal\\LaravelAdmin\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Devfaysal\\LaravelAdmin\\LaravelAdminServiceProvider"
+            ],
+            "aliases": {
+                "LaravelAdmin": "Devfaysal\\LaravelAdmin\\LaravelAdminFacade"
+            }
+        }
+    }
+}
