@@ -13,6 +13,18 @@ You can install the package via composer:
 
 ```bash
 composer require devfaysal/laravel-admin
+
+php artisan migrate
+
+php artisan vendor:publish --tag=laravel-admin-public
+
+php artisan vendor:publish --tag=laravel-admin-seeds
+
+Add use Notifiable, HasRoles, SoftDeletes; in usermodel
+
+run seeder php artisan db:seed --class=LaravelAdminSeeder
+
+
 ```
 
 ## Usage
