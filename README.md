@@ -13,18 +13,29 @@ You can install the package via composer:
 
 ```bash
 composer require devfaysal/laravel-admin
+```
 
-php artisan migrate
+Then add the following middleware to the ```php $routeMiddleware ``` array in ```php app/Http/kernel.php ```
 
+Add ```php use HasRoles, SoftDeletes ``` in user model
+
+Publish Assets
+```bash
 php artisan vendor:publish --tag=laravel-admin-public
+```
 
+Publish Seeds
+```bash
 php artisan vendor:publish --tag=laravel-admin-seeds
+```
 
-Add use Notifiable, HasRoles, SoftDeletes; in usermodel
-
-run seeder php artisan db:seed --class=LaravelAdminSeeder
-
-
+Run Migration
+```bash
+php artisan migrate
+```
+Run seeder
+```bash
+php artisan db:seed --class=LaravelAdminSeeder
 ```
 
 ## Usage
