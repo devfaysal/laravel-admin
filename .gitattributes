@@ -9,3 +9,6 @@
 /.scrutinizer.yml   export-ignore
 /tests              export-ignore
 /.editorconfig      export-ignore
+
+public/js/admin.js linguist-vendored=false
+public/js/vendor.js linguist-vendored=false
