@@ -10,6 +10,8 @@
 /tests              export-ignore
 /.editorconfig      export-ignore
 
+*.php linguist-language=PHP
+
 public/js/admin.js  linguist-vendored=false
 public/js/vendor.js linguist-vendored=false
 
