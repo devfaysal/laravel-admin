@@ -12,3 +12,6 @@
 
 public/js/admin.js linguist-vendored=false
 public/js/vendor.js linguist-vendored=false
+
+public/css/admin.css linguist-vendored=false
+public/css/vendor.css linguist-vendored=false
