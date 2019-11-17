@@ -22,6 +22,12 @@ composer require devfaysal/laravel-admin
 ```
 
 Then add the following middleware to the ``` $routeMiddleware ``` array in ``` app/Http/kernel.php ```
+```php
+'admin' => \Devfaysal\LaravelAdmin\Http\Middleware\Admin::class,
+'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+```
 
 Add ``` use HasRoles, SoftDeletes ``` in user model
 
