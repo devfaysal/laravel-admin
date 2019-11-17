@@ -47,6 +47,8 @@ php artisan migrate
 ```
 Run seeder
 ```bash
+composer dump-autoload
+
 php artisan db:seed --class=LaravelAdminSeeder
 ```
 
