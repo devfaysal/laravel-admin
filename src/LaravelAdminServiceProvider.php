@@ -29,9 +29,9 @@ class LaravelAdminServiceProvider extends ServiceProvider
             // ], 'migrations');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-admin'),
-            ], 'views');*/
+            ], 'laravel-admin-views');
 
             // Publishing assets.
             $this->publishes([

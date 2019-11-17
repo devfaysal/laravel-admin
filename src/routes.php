@@ -7,6 +7,9 @@ use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
 use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 
 Route::middleware(['web'])->prefix('admin')->group(function () {
+    Route::get('/', function(){
+        return redirect('/admin/login');
+    });
     Route::get('/login', [LoginController::class, 'show']);
     Route::post('/login', [LoginController::class, 'login']);
 

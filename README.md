@@ -71,6 +71,12 @@ Then visit localhost:8000/admin/login
 username: hello@faysal.me
 password: password
 
+Additionally if you want to customize the blade view files and want to add other options and menu in the admin panel, you can publish the views and extend
+
+```php
+php artisan vendor:publish --tag=laravel-admin-views
+```
+
 ### Testing
 
 ``` bash
