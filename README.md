@@ -28,8 +28,17 @@ Then add the following middleware to the ``` $routeMiddleware ``` array in ``` a
 'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
 'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 ```
-
-Add ``` use HasRoles, SoftDeletes ``` in user model
+Update the user mode with the following..
+```php
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
+...
+class User extends Authenticatable
+{
+    use HasRoles, SoftDeletes, Notifiable;
+    ....
+}
+```
 
 Publish Assets
 ```bash
