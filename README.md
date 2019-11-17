@@ -47,8 +47,12 @@ php artisan db:seed --class=LaravelAdminSeeder
 ## Usage
 
 ``` php
-// Usage description here
+php artisan serve
 ```
+Then visit localhost:8000/admin/login
+
+username: hello@faysal.me
+password: password
 
 ### Testing
 
