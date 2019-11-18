@@ -1,8 +1,7 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/admin/users">
-        @csrf
+    {!! Form::open(['url' => '/admin/users', 'method' => 'POST']) !!}
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -18,16 +17,16 @@
                             @endif
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="name">Name</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control">
+                            {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
+                            {!! Form::email('email', null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control">
+                            {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
+                            {!! Form::password('password', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
@@ -43,7 +42,7 @@
                             @foreach ($roles as $role)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="roles[]" value="{{$role->name}}">
+                                        {{ Form::checkbox('roles[]', $role->name, false, ['class' => 'checkbox']) }}
                                         <span>{{$role->name}}</span>
                                     </label>
                                 </div>
@@ -54,7 +53,7 @@
                             @foreach ($permissions as $permission)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="permissions[]" value="{{$permission->name}}">
+                                        {{ Form::checkbox('permissions[]', $permission->name, false, ['class' => 'checkbox']) }}
                                         <span>{{$permission->name}}</span>
                                     </label>
                                 </div>
@@ -64,6 +63,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 </section>
 @endsection

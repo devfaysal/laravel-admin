@@ -1,9 +1,7 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/admin/roles/{{$role->id}}">
-        @csrf
-        @method('patch')
+    {!! Form::open(['url' => '/admin/roles/' . $role->id , 'method' => 'PATCH']) !!}
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -19,8 +17,8 @@
                             @endif
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="name">Role Name</label>
-                            <input type="text" id="name" name="name" class="form-control" value="{{$role->name}}">
+                            {!! Form::label('name', 'Role Name', ['class' => 'control-label']) !!}
+                            {!! Form::text('name', $role->name , ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Update">
@@ -32,12 +30,11 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="form-group">
-                        <div class="form-group">
                             <label class="control-label">Permissions</label>
                             @foreach ($permissions as $permission)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="permissions[]" value="{{$permission->name}}" {{$permission->roles()->where('id', $role->id)->exists() ? 'checked' : ''}}>
+                                        {{ Form::checkbox('permissions[]', $permission->name, $permission->roles()->where('id', $role->id)->exists(), ['class' => 'checkbox']) }}
                                         <span>{{$permission->name}}</span>
                                     </label>
                                 </div>
@@ -47,6 +44,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 </section>
 @endsection

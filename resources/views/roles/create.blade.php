@@ -1,8 +1,7 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/admin/roles">
-        @csrf
+    {!! Form::open(['url' => '/admin/roles', 'method' => 'POST']) !!}
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -18,8 +17,8 @@
                             @endif
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="name">Role Name</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            {!! Form::label('name', 'Role Name', ['class' => 'control-label']) !!}
+                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
@@ -36,7 +35,7 @@
                             @foreach ($permissions as $permission)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="permissions[]" value="{{$permission->name}}">
+                                        {{ Form::checkbox('permissions[]', $permission->name, false, ['class' => 'checkbox']) }}
                                         <span>{{$permission->name}}</span>
                                     </label>
                                 </div>
@@ -46,6 +45,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 </section>
 @endsection

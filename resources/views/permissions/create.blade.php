@@ -1,8 +1,7 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/admin/permissions">
-        @csrf
+    {!! Form::open(['url' => '/admin/permissions', 'method' => 'POST']) !!}
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -18,8 +17,8 @@
                             @endif
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="name">Permission Name</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            {!! Form::label('name', 'Permission Name', ['class' => 'control-label']) !!}
+                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
@@ -28,6 +27,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 </section>
 @endsection

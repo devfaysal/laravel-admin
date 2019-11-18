@@ -1,9 +1,7 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/admin/users/{{$user->id}}">
-        @csrf
-        @method('patch')
+    {!! Form::open(['url' => '/admin/users/' . $user->id , 'method' => 'PATCH']) !!}
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -19,12 +17,12 @@
                             @endif
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="name">Name</label>
-                            <input type="text" id="name" name="name" class="form-control" value="{{$user->name}}">
+                            {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+                            {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group has-success">
-                            <label class="control-label" for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" value="{{$user->email}}">
+                            {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
+                            {!! Form::email('email', $user->email, ['class' => 'form-control']) !!}
                         </div>
                         {{-- <div class="form-group has-success">
                             <label class="control-label" for="password">Password</label>
@@ -44,7 +42,7 @@
                             @foreach ($roles as $role)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="roles[]" value="{{$role->name}}" {{$role->users()->where('id', $user->id)->exists() ? 'checked' : ''}}>
+                                        {{ Form::checkbox('roles[]', $role->name, $role->users()->where('id', $user->id)->exists(), ['class' => 'checkbox']) }}
                                         <span>{{$role->name}}</span>
                                     </label>
                                 </div>
@@ -55,7 +53,7 @@
                             @foreach ($permissions as $permission)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="permissions[]" value="{{$permission->name}}" {{$permission->users()->where('id', $user->id)->exists() ? 'checked' : ''}}>
+                                        {{ Form::checkbox('permissions[]', $permission->name, $permission->users()->where('id', $user->id)->exists(), ['class' => 'checkbox']) }}
                                         <span>{{$permission->name}}</span>
                                     </label>
                                 </div>
@@ -65,6 +63,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 </section>
 @endsection

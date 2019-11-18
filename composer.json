@@ -18,6 +18,7 @@
     "require": {
         "php": "^7.3",
         "illuminate/support": "^6.0",
+        "laravelcollective/html": "^6.0",
         "spatie/laravel-permission": "^3.2"
     },
     "require-dev": {
