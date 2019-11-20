@@ -4,6 +4,7 @@ namespace Devfaysal\LaravelAdmin\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -126,5 +127,30 @@ class UserController extends Controller
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/users');
+    }
+
+    public function datatable()
+    {
+        $users = auth()->user()->hasPermissionTo('manage_trashed_users') ? User::withTrashed()->get() : User::all();
+
+        return DataTables::of($users)
+            ->addColumn('action', function($user) {
+                $string = '';
+                if($user->trashed()){
+                    $string .= '<a class="btn btn-sm btn-oval btn-warning" href="'. route('users.restore', $user->id) .'">Restore</a> ';
+                }
+                $string .= '<a class="btn btn-sm btn-oval btn-info" href="'. route('users.edit', $user->id) .'">Edit</a>';
+                $string .= ' <a class="btn btn-sm btn-oval btn-primary" href="'. route('users.show', $user->id) .'">Show</a>';
+                return $string;
+            })
+            ->addColumn('roles', function($user) {
+                $string = '';
+                foreach ($user->roles as $role){
+                    $string .= '<span class="badge badge-success">'. $role->name .'</span> ';
+                }
+                return $string;
+            })
+            ->rawColumns(['action', 'roles'])
+            ->make(true);
     }
 }

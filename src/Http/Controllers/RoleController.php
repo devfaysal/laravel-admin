@@ -3,6 +3,7 @@
 namespace Devfaysal\LaravelAdmin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -30,7 +31,7 @@ class RoleController extends Controller
     {
         $permissions = Permission::all();
         return view('laravel-admin::roles.create', [
-            'permissions' => $permissions
+            'permissions' => $permissions->pluck('name')
         ]);
     }
 
@@ -79,5 +80,26 @@ class RoleController extends Controller
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/roles');
+    }
+
+    public function datatable()
+    {
+        $roles = Role::all();
+
+        return DataTables::of($roles)
+            ->addColumn('action', function($role) {
+                $string  = '<a class="btn btn-sm btn-oval btn-info" href="'. route('roles.edit', $role->id) .'">Edit</a>';
+                $string .= ' <a class="btn btn-sm btn-oval btn-primary" href="'. route('roles.show', $role->id) .'">Show</a>';
+                return $string;
+            })
+            ->addColumn('permissions', function($role) {
+                $string = '';
+                foreach ($role->permissions as $permission){
+                    $string .= '<span class="badge badge-success">'. $permission->name .'</span> ';
+                }
+                return $string;
+            })
+            ->rawColumns(['action', 'permissions'])
+            ->make(true);
     }
 }

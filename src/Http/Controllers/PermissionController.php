@@ -3,6 +3,7 @@
 namespace Devfaysal\LaravelAdmin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Spatie\Permission\Models\Permission;
@@ -36,5 +37,13 @@ class PermissionController extends Controller
 
         return redirect('/admin/permissions');
         
+    }
+
+    public function datatable()
+    {
+        $permissions = Permission::all();
+
+        return DataTables::of($permissions)
+            ->make(true);
     }
 }

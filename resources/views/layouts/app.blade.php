@@ -12,6 +12,18 @@
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/vendor.css') }}">
         <!-- Theme initialization -->
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/admin.css') }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+        <style>
+            tfoot {
+                display: table-header-group;
+            }
+            table.dataTable tfoot th, table.dataTable tfoot td{
+                padding: 10px 18px 6px 0;
+            }
+            .dataTables_filter{
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <div class="main-wrapper">
@@ -345,5 +357,7 @@
         </div>
         <script src="{{ asset('vendor/laravel-admin/js/vendor.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/admin.js') }}"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+        @yield('javascript')
     </body>
 </html>
