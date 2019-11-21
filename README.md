@@ -76,6 +76,8 @@ Additionally if you want to customize the blade view files and want to add other
 ```php
 php artisan vendor:publish --tag=laravel-admin-views
 ```
+If you want to add menu items in the sidebar menu, you need to create a file named ```menus.blade.php``` in your root view directoray.
+It will automatically register menus in the sidebar.
 
 ### Testing
 
