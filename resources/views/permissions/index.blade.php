@@ -16,12 +16,14 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -43,7 +45,8 @@
         ajax: '{{route('permissions.datatable')}}',
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'}
+            {data: 'name', name: 'name'},
+            {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
         initComplete: function () {
             this.api().columns().every(function () {

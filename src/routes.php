@@ -13,7 +13,7 @@ Route::middleware(['web'])->prefix('admin')->group(function () {
     Route::get('/login', [LoginController::class, 'show']);
     Route::post('/login', [LoginController::class, 'login']);
 
-    Route::group(['middleware' => ['admin','permission:access_admin_dashboard']], function () {
+    Route::group(['middleware' => ['admin','permission:access_admin_dashboard', 'permission:manage_users']], function () {
 
         Route::post('/logout', [LoginController::class, 'logout']);
         

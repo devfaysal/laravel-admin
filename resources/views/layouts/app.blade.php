@@ -138,6 +138,10 @@
                                     <a href="/admin/dashboard">
                                         <i class="fa fa-th-large"></i> Dashboard </a>
                                 </li>
+                                @if(View::exists('menus'))
+                                    @include('menus')
+                                @endif
+                                @can('manage_users')
                                 <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
                                     <a href="">
                                         <i class="fa fa-users"></i> User Management <i class="fa arrow"></i>
@@ -154,6 +158,7 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @endcan
                             </ul>
                         </nav>
                     </div>

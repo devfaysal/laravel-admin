@@ -1,9 +1,9 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <div class="row sameheight-container">
+    <div class="row">
         <div class="col col-12 col-sm-12 col-md-12 col-xl-12">
-            <div class="card sameheight-item stats" data-exclude="xs">
+            <div class="card" data-exclude="xs">
                 <div class="card-block">
                     <div class="title-block d-flex">
                         <h4 class="title"> Users</h4>

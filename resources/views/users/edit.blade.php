@@ -24,10 +24,10 @@
                             {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
                             {!! Form::email('email', $user->email, ['class' => 'form-control']) !!}
                         </div>
-                        {{-- <div class="form-group has-success">
-                            <label class="control-label" for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control is-valid">
-                        </div> --}}
+                        <div class="form-group has-success">
+                            {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
+                            {!! Form::password('password', ['class' => 'form-control']) !!}
+                        </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Update">
                         </div>

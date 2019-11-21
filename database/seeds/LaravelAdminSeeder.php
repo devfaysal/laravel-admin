@@ -13,6 +13,7 @@ class LaravelAdminSeeder extends Seeder
     public function run()
     {
         Permission::create(['name' => 'access_admin_dashboard']);
+        Permission::create(['name' => 'manage_users']);
         Permission::create(['name' => 'create_user']);
         Permission::create(['name' => 'manage_trashed_users']);
         $user = User::create([
@@ -22,6 +23,6 @@ class LaravelAdminSeeder extends Seeder
                     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                     'remember_token' => Str::random(10),
                 ]);
-        $user->givePermissionTo(['access_admin_dashboard', 'create_user', 'manage_trashed_users']);
+        $user->givePermissionTo(['access_admin_dashboard', 'manage_users', 'create_user', 'manage_trashed_users']);
     }
 }

@@ -44,6 +44,11 @@ class PermissionController extends Controller
         $permissions = Permission::all();
 
         return DataTables::of($permissions)
+            ->addColumn('action', function($role) {
+                $string  = '<a class="btn btn-sm btn-oval btn-info" href="#">Edit</a>';
+                $string .= ' <a class="btn btn-sm btn-oval btn-primary" href="#">Show</a>';
+                return $string;
+            })
             ->make(true);
     }
 }
