@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label class="control-label">{{ $title }}</label>
+    <label class="control-label">{{ __($title) }}</label>
     @foreach ($values as $value)
         <div>
             <label>
