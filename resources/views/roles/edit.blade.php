@@ -17,8 +17,11 @@
                             @endif
                         </div>
                         <div class="form-group has-success">
-                            {!! Form::label('name', 'Role Name', ['class' => 'control-label']) !!}
-                            {!! Form::text('name', $role->name , ['class' => 'form-control']) !!}
+                            @include('laravel-admin::form.fields.text', [
+                                'id' => 'name',
+                                'title' => 'Role Name',
+                                'value' => $role->name
+                            ])
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Update">
@@ -30,15 +33,12 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="form-group">
-                            <label class="control-label">Permissions</label>
-                            @foreach ($permissions as $permission)
-                                <div>
-                                    <label>
-                                        {{ Form::checkbox('permissions[]', $permission->name, $permission->roles()->where('id', $role->id)->exists(), ['class' => 'checkbox']) }}
-                                        <span>{{$permission->name}}</span>
-                                    </label>
-                                </div>
-                            @endforeach
+                            @include('laravel-admin::form.fields.checkbox-multiple', [
+                                'id' => 'permissions',
+                                'title' => 'Permissions',
+                                'data' => $permissions->pluck('name'),
+                                'values' => $role->permissions->pluck('name')->toArray()
+                            ])
                         </div>
                     </div>
                 </div>

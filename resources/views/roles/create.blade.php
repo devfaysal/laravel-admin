@@ -11,7 +11,8 @@
                         </div>
                         @include('laravel-admin::form.fields.text', [
                             'id' => 'name',
-                            'title' => 'Role Name'
+                            'title' => 'Role Name',
+                            'value' => null
                         ])
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
@@ -25,7 +26,8 @@
                         @include('laravel-admin::form.fields.checkbox-multiple', [
                             'id' => 'permissions',
                             'title' => 'Permissions',
-                            'values' => $permissions
+                            'data' => $permissions,
+                            'values' => []
                         ])
                     </div>
                 </div>
