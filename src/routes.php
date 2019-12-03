@@ -8,9 +8,9 @@ use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 
 Route::middleware(['web'])->prefix('admin')->group(function () {
     Route::get('/', function(){
-        return redirect('/admin/login');
+        return redirect(route('admin.login'));
     });
-    Route::get('/login', [LoginController::class, 'show']);
+    Route::get('/login', [LoginController::class, 'show'])->name('admin.login');
     Route::post('/login', [LoginController::class, 'login']);
 
     Route::group(['middleware' => ['admin','permission:access_admin_dashboard']], function () {
