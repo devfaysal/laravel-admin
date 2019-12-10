@@ -1,6 +1,9 @@
 <div class="form-group @error($id) has-error @enderror">
+    @php
+        $attributes['class'] = 'form-control' .($errors->has($id) ? ' is-invalid':'');
+    @endphp
     {{ Form::label( $id, __($title), ['class' => 'control-label']) }}
-    {{ Form::number( $id, $value, ['class' => 'form-control' .($errors->has($id) ? ' is-invalid':'')] ) }}
+    {{ Form::number( $id, $value, $attributes ) }}
     @error($id)
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
