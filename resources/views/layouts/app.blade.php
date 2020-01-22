@@ -12,7 +12,9 @@
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/vendor.css') }}">
         <!-- Theme initialization -->
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/admin.css') }}">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+        <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/datatables.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2-bootstrap4.css') }}"/>
         <style>
             tfoot {
                 display: table-header-group;
@@ -365,7 +367,8 @@
         </div>
         <script src="{{ asset('vendor/laravel-admin/js/vendor.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/admin.js') }}"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+        <script src="{{ asset('vendor/laravel-admin/js/datatables.min.js') }}"></script>
+        <script src="{{ asset('vendor/laravel-admin/js/select2.min.js') }}"></script>
         @if(View::exists('javascripts'))
             @include('javascripts')
         @endif
