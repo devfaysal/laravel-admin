@@ -81,6 +81,8 @@ php artisan vendor:publish --tag=laravel-admin-views
 If you want to add menu items in the sidebar menu, you need to create a file named ```menus.blade.php``` in your root view directoray.
 It will automatically register menus in the sidebar.
 
+For javascript and css, ```javascript.blade.php``` and ```styles.blade.php```
+
 ### Testing
 
 ``` bash

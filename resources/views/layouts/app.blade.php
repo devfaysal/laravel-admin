@@ -24,6 +24,9 @@
                 display: none;
             }
         </style>
+        @if(View::exists('styles'))
+            @include('styles')
+        @endif
     </head>
     <body>
         <div class="main-wrapper">
@@ -363,6 +366,9 @@
         <script src="{{ asset('vendor/laravel-admin/js/vendor.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/admin.js') }}"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+        @if(View::exists('javascripts'))
+            @include('javascripts')
+        @endif
         @yield('javascript')
     </body>
 </html>
