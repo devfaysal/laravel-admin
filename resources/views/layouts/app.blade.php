@@ -12,20 +12,9 @@
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/vendor.css') }}">
         <!-- Theme initialization -->
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/admin.css') }}">
-        <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/datatables.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/dataTables.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2-bootstrap4.css') }}"/>
-        <style>
-            tfoot {
-                display: table-header-group;
-            }
-            table.dataTable tfoot th, table.dataTable tfoot td{
-                padding: 10px 18px 6px 0;
-            }
-            .dataTables_filter{
-                display: none;
-            }
-        </style>
         @if(View::exists('styles'))
             @include('styles')
         @endif
@@ -368,6 +357,7 @@
         <script src="{{ asset('vendor/laravel-admin/js/vendor.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/admin.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/datatables.min.js') }}"></script>
+        <script src="{{ asset('vendor/laravel-admin/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/select2.min.js') }}"></script>
         @if(View::exists('javascripts'))
             @include('javascripts')
