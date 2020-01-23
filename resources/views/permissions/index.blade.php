@@ -19,13 +19,6 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -48,20 +41,6 @@
             {data: 'name', name: 'name'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
-        initComplete: function () {
-            this.api().columns().every(function () {
-                var column = this;
-                var input = document.createElement("input");
-                input.className = 'form-control';
-                $(input).appendTo($(column.footer()).empty())
-                .on('keyup change', function () {
-                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-                    column.search(val ? val : '', true, false).draw();
-                });
-            });
-            $('.hide input').hide();
-        }
     });
 </script>
 @endsection
