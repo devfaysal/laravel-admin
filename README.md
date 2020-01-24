@@ -2,7 +2,7 @@
 
 # Roles/Permission UI for Laravel Application
 
-![Screenshot_2019-12-20 Laravel](https://user-images.githubusercontent.com/16212149/71229385-80c38400-230f-11ea-8f9b-cc7f7f0aae82.png)
+![Screenshot_2019-12-20 Laravel](https://user-images.githubusercontent.com/16212149/73057065-c3eab700-3eba-11ea-802a-1f564d3af4ad.png)
 
 ### Following packages/Libraries used
 - [Laravel Permission by Spatie](https://github.com/spatie/laravel-permission)
