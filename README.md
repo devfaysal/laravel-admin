@@ -83,6 +83,10 @@ It will automatically register menus in the sidebar.
 
 For javascript and css, ```javascript.blade.php``` and ```styles.blade.php```
 
+### Dashboard modification
+To update Dashboard, register ```/admin/dashboard``` route and use your own controller and view.
+If you want the current html design, check vendor folder and copy dashboard.blade.php file from ```resource/views``` folder inside the package.
+
 ### Testing
 
 ``` bash
