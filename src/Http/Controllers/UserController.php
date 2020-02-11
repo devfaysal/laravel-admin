@@ -38,8 +38,8 @@ class UserController extends Controller
         $permissions = Permission::all();
         $roles = Role::all();
         return view('laravel-admin::users.create', [
-            'roles' => $roles,
-            'permissions' => $permissions
+            'roles' => $roles->pluck('name'),
+            'permissions' => $permissions->pluck('name')
         ]);
     }
 
@@ -78,8 +78,8 @@ class UserController extends Controller
         $roles = Role::all();
         return view('laravel-admin::users.edit', [
             'user' => $user,
-            'roles' => $roles,
-            'permissions' => $permissions
+            'roles' => $roles->pluck('name'),
+            'permissions' => $permissions->pluck('name')
         ]);
     }
 
