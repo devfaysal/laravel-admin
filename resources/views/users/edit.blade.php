@@ -23,26 +23,20 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="form-group">
-                            <label class="control-label">Roles</label>
-                            @foreach ($roles as $role)
-                                <div>
-                                    <label>
-                                        {{ Form::checkbox('roles[]', $role->name, $role->users()->where('id', $user->id)->exists(), ['class' => 'checkbox']) }}
-                                        <span>{{$role->name}}</span>
-                                    </label>
-                                </div>
-                            @endforeach
+                            @include('laravel-admin::form.fields.checkbox-multiple', [
+                                'id' => 'roles',
+                                'title' => 'Roles',
+                                'data' => $roles,
+                                'values' => $user->permissions->pluck('name')->toArray()
+                            ])
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Permissions</label>
-                            @foreach ($permissions as $permission)
-                                <div>
-                                    <label>
-                                        {{ Form::checkbox('permissions[]', $permission->name, $permission->users()->where('id', $user->id)->exists(), ['class' => 'checkbox']) }}
-                                        <span>{{$permission->name}}</span>
-                                    </label>
-                                </div>
-                            @endforeach
+                            @include('laravel-admin::form.fields.checkbox-multiple', [
+                                'id' => 'permissions',
+                                'title' => 'Permissions',
+                                'data' => $permissions,
+                                'values' => $user->permissions->pluck('name')->toArray()
+                            ])
                         </div>
                     </div>
                 </div>
