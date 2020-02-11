@@ -8,26 +8,11 @@
                     <div class="card-block">
                         <div class="title-block">
                             <h4 class="title">Create New user</h4>
-                            @if ($errors->any())
-                            <div class="field mt-6">
-                                @foreach ($errors->all() as $error)
-                                    <li class="text-sm text-red">{{ $error }}</li>
-                                @endforeach
-                            </div>
-                            @endif
                         </div>
-                        <div class="form-group has-success">
-                            {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group has-success">
-                            {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
-                            {!! Form::email('email', null, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group has-success">
-                            {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
-                            {!! Form::password('password', ['class' => 'form-control']) !!}
-                        </div>
+                        @include('laravel-admin::users.form', [
+                            'user' => new App\User(),
+                            'buttonText' => 'Create'
+                        ])
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
                         </div>

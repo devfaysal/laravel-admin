@@ -8,13 +8,6 @@
                     <div class="card-block">
                         <div class="title-block">
                             <h4 class="title">Edit Role</h4>
-                            @if ($errors->any())
-                            <div class="field mt-6">
-                                @foreach ($errors->all() as $error)
-                                    <li class="text-sm text-red">{{ $error }}</li>
-                                @endforeach
-                            </div>
-                            @endif
                         </div>
                         <div class="form-group has-success">
                             @include('laravel-admin::form.fields.text', [
