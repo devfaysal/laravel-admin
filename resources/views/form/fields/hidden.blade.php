@@ -2,4 +2,4 @@
     $attributes = [];
 @endphp
 
-{{ Form::hidden( $id, $value, $attributes) }}
+<input type="hidden" id="{{ $id }}" name="{{ $id }}" value="{{ old($id, $value) }}" {!! prepare_attributes($attributes) !!}>

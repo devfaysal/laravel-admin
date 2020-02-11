@@ -8,7 +8,7 @@
         $attributes['id'] = $d;
     @endphp
         <div class="custom-control custom-radio">
-            {{ Form::radio($id, $d, ($d == $value), $attributes) }}
+            <input type="radio" id="{{ $d }}" name="{{ $id }}" {{$d == $value ? 'checked' : ''}} value="{{ $d }}" {!! prepare_attributes($attributes) !!}>
             <label class="custom-control-label" for="{{$d}}">{{$d}}</label>
         </div>
     @endforeach

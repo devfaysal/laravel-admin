@@ -2,8 +2,8 @@
     @php
         $attributes['class'] = 'form-control' .($errors->has($id) ? ' is-invalid':'');
     @endphp
-    {{ Form::label( $id, __($title), ['class' => 'control-label']) }}
-    {{ Form::textarea( $id, $value, $attributes) }}
+    <label for="{{ $id }}" class="control-label">{{ __($title) }}</label>
+    <textarea id="{{ $id }}" name="{{ $id }}" cols="50" rows="10" {!! prepare_attributes($attributes) !!}>{{ old($id, $value) }}</textarea>
     @error($id)
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

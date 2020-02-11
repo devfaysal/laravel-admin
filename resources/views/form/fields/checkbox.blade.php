@@ -5,7 +5,7 @@
     @endphp
     <label class="control-label">{{ __($title) }}</label>
     <div class="custom-control custom-checkbox">
-        {{ Form::checkbox($id, $data, $value, $attributes) }}
+        <input type="checkbox" id="{{ $id }}" name="{{ $id }}" {{$data == $value ? 'checked' : ''}} {!! prepare_attributes($attributes) !!}>
         <label class="custom-control-label" for="{{$id}}">{{ __($data) }}</label>
         @error($id)
             <span class="invalid-feedback" role="alert">

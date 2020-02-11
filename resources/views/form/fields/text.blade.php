@@ -2,8 +2,8 @@
     @php
         $attributes['class'] = 'form-control' .($errors->has($id) ? ' is-invalid':'');
     @endphp
-    {{ Form::label( $id, __($title), ['class' => 'control-label']) }}
-    {{ Form::text( $id, $value, $attributes) }}
+    <label for="{{ $id }}" class="control-label">{{ __($title) }}</label>
+    <input type="text" id="{{ $id }}" name="{{ $id }}" value="{{ old($id, $value) }}" {!! prepare_attributes($attributes) !!}>
     @error($id)
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

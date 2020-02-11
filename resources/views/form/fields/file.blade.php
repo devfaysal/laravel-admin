@@ -2,8 +2,8 @@
     @php
         $attributes['class'] = 'form-control-file' .($errors->has($id) ? ' is-invalid':'');
     @endphp
-    {{ Form::label( $id, __($title), ['class' => 'control-label']) }}
-    {{ Form::file( $id, $attributes) }}
+    <label for="{{ $id }}" class="control-label">{{ __($title) }}</label>
+    <input type="file" id="{{ $id }}" name="{{ $id }}" {!! prepare_attributes($attributes) !!}>
     @error($id)
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
