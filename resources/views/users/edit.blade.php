@@ -1,7 +1,9 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    {!! Form::open(['url' => '/admin/users/' . $user->id , 'method' => 'PATCH']) !!}
+    <form method="POST" action="/admin/users/{{ $user->id }}">
+        @csrf
+        @method('PATCH')
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -27,7 +29,7 @@
                                 'id' => 'roles',
                                 'title' => 'Roles',
                                 'data' => $roles,
-                                'values' => $user->permissions->pluck('name')->toArray()
+                                'values' => $user->roles->pluck('name')->toArray()
                             ])
                         </div>
                         <div class="form-group">
@@ -42,6 +44,6 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
+    </form>
 </section>
 @endsection

@@ -1,7 +1,8 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    {!! Form::open(['url' => '/admin/users', 'method' => 'POST']) !!}
+    <form method="POST" action="/admin/users">
+        @csrf
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
@@ -42,6 +43,6 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
+    </form>
 </section>
 @endsection
