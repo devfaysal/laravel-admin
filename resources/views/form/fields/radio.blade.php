@@ -3,6 +3,11 @@
         $attributes['class'] = 'custom-control-input' .($errors->has($id) ? ' is-invalid':'');
     @endphp
     <label class="control-label mb-1">{{ __($title) }}</label>
+    
+    @if(isset($tooltip))
+        <span class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></span>
+    @endif
+
     @foreach ($data as $d)
     @php
         $attributes['id'] = $d;

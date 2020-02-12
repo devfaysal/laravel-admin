@@ -4,6 +4,11 @@
         $attributes['placeholder'] = 'Select ' .  __($title);
     @endphp
     <label for="{{ $id }}" class="control-label">{{ __($title) }}</label>
+    
+    @if(isset($tooltip))
+        <span class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></span>
+    @endif
+
     <select id="{{ $id }}" name="{{ $id }}" {!! prepare_attributes($attributes) !!}>
         <option value="">Select {{ __($title) }}</option>
         {!! prepare_options($data, $value) !!}

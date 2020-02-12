@@ -4,6 +4,11 @@
         $attributes['id'] = $id;
     @endphp
     <label class="control-label">{{ __($title) }}</label>
+
+    @if(isset($tooltip))
+        <span class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></span>
+    @endif
+    
     <div class="custom-control custom-checkbox">
         <input type="checkbox" id="{{ $id }}" name="{{ $id }}" {{$data == $value ? 'checked' : ''}} {!! prepare_attributes($attributes) !!}>
         <label class="custom-control-label" for="{{$id}}">{{ __($data) }}</label>

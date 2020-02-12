@@ -1393,3 +1393,10 @@ NProgress.start();
 
 // end loading bar 
 NProgress.done();
+
+/***********************************************
+*        Form Fields
+***********************************************/
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
