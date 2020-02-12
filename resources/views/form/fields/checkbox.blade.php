@@ -10,7 +10,7 @@
     @endif
     
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" id="{{ $id }}" name="{{ $id }}" {{$data == $value ? 'checked' : ''}} {!! prepare_attributes($attributes) !!}>
+        <input type="checkbox" id="{{ $id }}" name="{{ $id }}" {{$data == old($id, $value) ? 'checked' : ''}} {!! prepare_attributes($attributes) !!}>
         <label class="custom-control-label" for="{{$id}}">{{ __($data) }}</label>
         @error($id)
             <span class="invalid-feedback" role="alert">

@@ -11,7 +11,7 @@
 
     <select id="{{ $id }}" name="{{ $id }}" {!! prepare_attributes($attributes) !!}>
         <option value="">Select {{ __($title) }}</option>
-        {!! prepare_options($data, $value) !!}
+        {!! prepare_options($data, old($id, $value)) !!}
     </select>
     @error($id)
         <span class="invalid-feedback" role="alert">

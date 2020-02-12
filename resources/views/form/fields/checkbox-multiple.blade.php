@@ -11,7 +11,7 @@
     @foreach ($data as $d)
         <div>
             <label>
-                <input type="checkbox" id="{{ $d }}" name="{{ $id.'[]' }}" {{ in_array($d, $values) ? 'checked' : ''}} value="{{ $d }}" {!! prepare_attributes($attributes) !!}>
+                <input type="checkbox" id="{{ $d }}" name="{{ $id.'[]' }}" {{ in_array($d, old($id, $value)) ? 'checked' : ''}} value="{{ $d }}" {!! prepare_attributes($attributes) !!}>
                 <span>{{$d}}</span>
             </label>
         </div>

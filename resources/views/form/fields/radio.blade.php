@@ -13,7 +13,7 @@
         $attributes['id'] = $d;
     @endphp
         <div class="custom-control custom-radio">
-            <input type="radio" id="{{ $d }}" name="{{ $id }}" {{$d == $value ? 'checked' : ''}} value="{{ $d }}" {!! prepare_attributes($attributes) !!}>
+            <input type="radio" id="{{ $d }}" name="{{ $id }}" {{$d == old($id, $value) ? 'checked' : ''}} value="{{ $d }}" {!! prepare_attributes($attributes) !!}>
             <label class="custom-control-label" for="{{$d}}">{{$d}}</label>
         </div>
     @endforeach
