@@ -13,3 +13,36 @@ if (! function_exists('prepare_attributes')) {
         return $attributes_string;
     }
 }
+
+
+if (! function_exists('prepare_options')) {
+
+    function prepare_options($data, $selected)
+    {
+        if($data instanceof Illuminate\Support\Collection){
+            $data = $data->toArray();
+        }
+        $options_html = '';
+        
+        if(array_values($data) !== $data){
+            foreach($data as $key => $value){
+                if($key == $selected){
+                    $options_html .= '<option selected="selected" value="'. $key .'">'. $value.'</option>';
+                }else{
+                    $options_html .= '<option value="'. $key .'">'. $value.'</option>';
+                }
+            }
+        }else{
+            foreach($data as $key){
+                if($key == $selected){
+                    $options_html .= '<option selected="selected" value="'. $key .'">'. $key.'</option>';
+                }else{
+                    $options_html .= '<option value="'. $key .'">'. $key.'</option>';
+                }
+            }
+        }
+        
+
+        return $options_html;
+    }
+}

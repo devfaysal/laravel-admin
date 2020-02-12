@@ -3,8 +3,11 @@
         $attributes['class'] = 'form-control' .($errors->has($id) ? ' is-invalid':'');
         $attributes['placeholder'] = 'Select ' .  __($title);
     @endphp
-    {{ Form::label( $id, __($title), ['class' => 'control-label']) }}
-    {{ Form::select($id, $data, $value, $attributes ) }}
+    <label for="{{ $id }}" class="control-label">{{ __($title) }}</label>
+    <select id="{{ $id }}" name="{{ $id }}" {!! prepare_attributes($attributes) !!}>
+        <option value="">Select {{ __($title) }}</option>
+        {!! prepare_options($data, $value) !!}
+    </select>
     @error($id)
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
