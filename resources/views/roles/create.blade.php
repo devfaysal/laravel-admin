@@ -11,8 +11,8 @@
                             <h4 class="title">Create New Role</h4>
                         </div>
                         @include('laravel-admin::form.fields.text', [
-                            'id' => 'name',
-                            'title' => 'Role Name',
+                            'name' => 'name',
+                            'label' => 'Role Name',
                             'value' => null
                         ])
                         <div class="form-group">
@@ -25,8 +25,8 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         @include('laravel-admin::form.fields.checkbox-multiple', [
-                            'id' => 'permissions',
-                            'title' => 'Permissions',
+                            'name' => 'permissions',
+                            'label' => 'Permissions',
                             'data' => $permissions,
                             'values' => []
                         ])

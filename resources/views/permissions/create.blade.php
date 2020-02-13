@@ -11,8 +11,8 @@
                             <h4 class="title">Create New Permission</h4>
                         </div>
                         @include('laravel-admin::form.fields.text', [
-                            'id' => 'name',
-                            'title' => 'Permission Name',
+                            'name' => 'name',
+                            'label' => 'Permission Name',
                             'value' => null
                         ])
                         <div class="form-group">

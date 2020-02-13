@@ -13,8 +13,8 @@
                         </div>
                         <div class="form-group has-success">
                             @include('laravel-admin::form.fields.text', [
-                                'id' => 'name',
-                                'title' => 'Role Name',
+                                'name' => 'name',
+                                'label' => 'Role Name',
                                 'value' => $role->name
                             ])
                         </div>
@@ -29,8 +29,8 @@
                     <div class="card-block">
                         <div class="form-group">
                             @include('laravel-admin::form.fields.checkbox-multiple', [
-                                'id' => 'permissions',
-                                'title' => 'Permissions',
+                                'name' => 'permissions',
+                                'label' => 'Permissions',
                                 'data' => $permissions->pluck('name'),
                                 'values' => $role->permissions->pluck('name')->toArray()
                             ])

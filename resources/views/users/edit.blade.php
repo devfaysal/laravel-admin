@@ -26,16 +26,16 @@
                     <div class="card-block">
                         <div class="form-group">
                             @include('laravel-admin::form.fields.checkbox-multiple', [
-                                'id' => 'roles',
-                                'title' => 'Roles',
+                                'name' => 'roles',
+                                'label' => 'Roles',
                                 'data' => $roles,
                                 'values' => $user->roles->pluck('name')->toArray()
                             ])
                         </div>
                         <div class="form-group">
                             @include('laravel-admin::form.fields.checkbox-multiple', [
-                                'id' => 'permissions',
-                                'title' => 'Permissions',
+                                'name' => 'permissions',
+                                'label' => 'Permissions',
                                 'data' => $permissions,
                                 'values' => $user->permissions->pluck('name')->toArray()
                             ])

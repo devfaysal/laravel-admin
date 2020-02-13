@@ -1,17 +1,17 @@
 
 @include('laravel-admin::form.fields.text', [
-    'id' => 'name',
-    'title' => 'Name',
+    'name' => 'name',
+    'label' => 'Name',
     'value' => $user->name
 ])
 
 @include('laravel-admin::form.fields.email', [
-    'id' => 'email',
-    'title' => 'Email',
+    'name' => 'email',
+    'label' => 'Email',
     'value' => $user->email
 ])
 
 @include('laravel-admin::form.fields.password', [
-    'id' => 'password',
-    'title' => 'Password',
+    'name' => 'password',
+    'label' => 'Password',
 ])
