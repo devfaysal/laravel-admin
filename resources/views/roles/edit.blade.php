@@ -12,7 +12,7 @@
                             <h4 class="title">Edit Role</h4>
                         </div>
                         <div class="form-group has-success">
-                            @include('laravel-admin::form.fields.text', [
+                            @include('laravel-admin::form.text', [
                                 'name' => 'name',
                                 'label' => 'Role Name',
                                 'value' => $role->name
@@ -28,7 +28,7 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="form-group">
-                            @include('laravel-admin::form.fields.checkbox-multiple', [
+                            @include('laravel-admin::form.checkbox-multiple', [
                                 'name' => 'permissions',
                                 'label' => 'Permissions',
                                 'data' => $permissions->pluck('name'),

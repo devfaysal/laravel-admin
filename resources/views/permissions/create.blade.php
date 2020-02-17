@@ -10,7 +10,7 @@
                         <div class="title-block">
                             <h4 class="title">Create New Permission</h4>
                         </div>
-                        @include('laravel-admin::form.fields.text', [
+                        @include('laravel-admin::form.text', [
                             'name' => 'name',
                             'label' => 'Permission Name',
                             'value' => null

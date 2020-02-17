@@ -10,7 +10,7 @@
                         <div class="title-block">
                             <h4 class="title">Create New Role</h4>
                         </div>
-                        @include('laravel-admin::form.fields.text', [
+                        @include('laravel-admin::form.text', [
                             'name' => 'name',
                             'label' => 'Role Name',
                             'value' => null
@@ -24,7 +24,7 @@
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
-                        @include('laravel-admin::form.fields.checkbox-multiple', [
+                        @include('laravel-admin::form.checkbox-multiple', [
                             'name' => 'permissions',
                             'label' => 'Permissions',
                             'data' => $permissions,
