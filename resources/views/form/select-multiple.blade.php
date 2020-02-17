@@ -12,7 +12,6 @@
     @endif
 
     <select id="{{ $id }}" name="{{ $name . '[]' }}" {!! prepare_attributes($attributes) !!} multiple="multiple">
-        <option value="">Select {{ __($label) }}</option>
         {!! prepare_options($data, old($name, $values)) !!}
     </select>
     @error($name)
