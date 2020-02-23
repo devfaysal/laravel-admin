@@ -16,6 +16,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Role Name</th>
+                                        <th>Guard Name</th>
                                         <th>Permissions</th>
                                         <th>Action</th>
                                     </tr>
@@ -40,6 +41,7 @@
         columns: [
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
+            {data: 'guard_name', name: 'guard_name'},
             {data: 'permissions', name: 'permissions'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],

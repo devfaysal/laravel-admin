@@ -2,8 +2,10 @@
 
 namespace Devfaysal\LaravelAdmin\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -35,7 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('admin.guest:admin')->except('logout');
     }
 
     /**
@@ -49,6 +51,18 @@ class LoginController extends Controller
         return view('laravel-admin::auth.login', [
             
         ]);
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+    protected function authenticated(Request $request, $employee)
+    {
+        $employee->last_login_at = Carbon::now()->toDateTimeString();
+        $employee->last_login_ip = $request->getClientIp();
+        $employee->save();
     }
 
     protected function loggedOut(Request $request)

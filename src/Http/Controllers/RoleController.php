@@ -41,7 +41,10 @@ class RoleController extends Controller
             'name' => 'required',
         ]);
 
-        $role = Role::create(['name' => $request->name]);
+        $role = Role::create([
+                'name' => $request->name,
+                'guard_name' => $request->guard_name
+            ]);
 
         if($request->permissions){
             $role->givePermissionTo($request->permissions);
@@ -69,7 +72,8 @@ class RoleController extends Controller
         ]);
 
         $role->update([
-            'name' => $request->name
+            'name' => $request->name,
+            'guard_name' => $request->guard_name
         ]);
 
         if($request->permissions){

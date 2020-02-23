@@ -135,10 +135,10 @@
                                 @if(View::exists('menus'))
                                     @include('menus')
                                 @endif
-                                @can('manage_users')
-                                <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
+                                @can('manage_admins')
+                                <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/admins*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
                                     <a href="">
-                                        <i class="fa fa-users"></i> User Management <i class="fa arrow"></i>
+                                        <i class="fa fa-users"></i> {{__('laravel-admin::sidebar.admin_management')}} <i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li class="{{(request()->is('admin/permissions*')) ? 'active' : '' }}">
@@ -147,8 +147,8 @@
                                         <li class="{{(request()->is('admin/roles*')) ? 'active' : '' }}">
                                             <a href="/admin/roles"> <i class="fa fa-briefcase"> </i> Roles </a>
                                         </li>
-                                        <li class="{{(request()->is('admin/users*')) ? 'active' : '' }}">
-                                            <a href="/admin/users"> <i class="fa fa-users"> </i> Users </a>
+                                        <li class="{{(request()->is('admin/admins*')) ? 'active' : '' }}">
+                                            <a href="/admin/admins"> <i class="fa fa-users"> </i> Admins </a>
                                         </li>
                                     </ul>
                                 </li>

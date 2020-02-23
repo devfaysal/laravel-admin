@@ -15,6 +15,11 @@
                             'label' => 'Role Name',
                             'value' => null
                         ])
+                        @include('laravel-admin::form.text', [
+                            'name' => 'guard_name',
+                            'label' => 'Guard Name',
+                            'value' => null
+                        ])
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
                         </div>

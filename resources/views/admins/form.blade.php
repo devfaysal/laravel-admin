@@ -2,13 +2,13 @@
 @include('laravel-admin::form.text', [
     'name' => 'name',
     'label' => 'Name',
-    'value' => $user->name
+    'value' => $admin->name
 ])
 
 @include('laravel-admin::form.email', [
     'name' => 'email',
     'label' => 'Email',
-    'value' => $user->email
+    'value' => $admin->email
 ])
 
 @include('laravel-admin::form.password', [

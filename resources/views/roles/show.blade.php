@@ -13,9 +13,14 @@
                         <div class="col-12 col-sm-12">
                             <table class="table">
                                 <tr>
-                                    <th width="100px">Name</th>
+                                    <th width="150px">Name</th>
                                     <td width="10px">:</td>
                                     <td>{{$role->name ?? 'N/A'}}</td>
+                                </tr>
+                                <tr>
+                                    <th width="150px">Guard Name</th>
+                                    <td width="10px">:</td>
+                                    <td>{{$role->guard_name ?? 'N/A'}}</td>
                                 </tr>
                             </table>
                         </div>

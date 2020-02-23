@@ -2,8 +2,9 @@
 
 use Devfaysal\LaravelAdmin\Http\Controllers\RoleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\UserController;
-use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
+use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
 use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
+use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
 use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 
 Route::middleware(['web'])->prefix('admin')->group(function () {
@@ -13,23 +14,24 @@ Route::middleware(['web'])->prefix('admin')->group(function () {
     Route::get('/login', [LoginController::class, 'show'])->name('admin.login');
     Route::post('/login', [LoginController::class, 'login']);
 
-    Route::group(['middleware' => ['admin','permission:access_admin_dashboard']], function () {
+    Route::group(['middleware' => ['admin:admin','permission:access_admin_dashboard']], function () {
 
         Route::post('/logout', [LoginController::class, 'logout']);
         
         Route::get('/dashboard', [DashboardController::class, 'index']);
 
-        Route::group(['middleware' => ['permission:manage_users']], function(){
-            //Users
-            Route::get('/users', [UserController::class, 'index']);
-            Route::get('/users/datatable', [UserController::class, 'datatable'])->name('users.datatable');
-            Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-            Route::post('/users', [UserController::class, 'store']);
-            Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
-            Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-            Route::patch('/users/{user}', [UserController::class, 'update']);
-            Route::delete('/users/{user}', [UserController::class, 'destroy']);
-            Route::get('/users/{user}/restore', [UserController::class, 'restore'])->name('users.restore');
+        Route::group(['middleware' => ['permission:manage_admins']], function(){
+
+            //Admins
+            Route::get('/admins', [AdminController::class, 'index']);
+            Route::get('/admins/datatable', [AdminController::class, 'datatable'])->name('admins.datatable');
+            Route::get('/admins/create', [AdminController::class, 'create'])->name('admins.create');
+            Route::post('/admins', [AdminController::class, 'store']);
+            Route::get('/admins/{admin}', [AdminController::class, 'show'])->name('admins.show');
+            Route::get('/admins/{admin}/edit', [AdminController::class, 'edit'])->name('admins.edit');
+            Route::patch('/admins/{admin}', [AdminController::class, 'update']);
+            Route::delete('/admins/{admin}', [AdminController::class, 'destroy']);
+            Route::get('/admins/{admin}/restore', [AdminController::class, 'restore'])->name('admins.restore');
 
             //Permissions
             Route::get('/permissions', [PermissionController::class, 'index']);

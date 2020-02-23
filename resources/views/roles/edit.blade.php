@@ -18,6 +18,11 @@
                                 'value' => $role->name
                             ])
                         </div>
+                        @include('laravel-admin::form.text', [
+                            'name' => 'guard_name',
+                            'label' => 'Guard Name',
+                            'value' => $role->guard_name
+                        ])
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Update">
                         </div>

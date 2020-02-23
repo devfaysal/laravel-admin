@@ -6,8 +6,8 @@
             <div class="card sameheight-item stats" data-exclude="xs">
                 <div class="card-block">
                     <div class="title-block d-flex">
-                        <h4 class="title"> {{$user->name}}</h4>
-                        <a class="btn btn-sm btn-oval btn-info mx-1 ml-auto" href="/admin/users/{{$user->id}}/edit"> Edit</a>
+                        <h4 class="title"> {{$admin->name}}</h4>
+                        <a class="btn btn-sm btn-oval btn-info mx-1 ml-auto" href="/admin/admins/{{$admin->id}}/edit"> Edit</a>
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">
@@ -15,18 +15,18 @@
                                 <tr>
                                     <th width="100px">Name</th>
                                     <td width="10px">:</td>
-                                    <td>{{$user->name ?? 'N/A'}}</td>
+                                    <td>{{$admin->name ?? 'N/A'}}</td>
                                 </tr>
                                 <tr>
                                     <th>Email</th>
                                     <td>:</td>
-                                    <td>{{$user->email ?? 'N/A'}}</td>
+                                    <td>{{$admin->email ?? 'N/A'}}</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <div class="title-block d-flex">
-                        <form class="mx-1 ml-auto" method="POST" action="/admin/users/{{$user->id}}">
+                        <form class="mx-1 ml-auto" method="POST" action="/admin/admins/{{$admin->id}}">
                             @method('DELETE')
                             @csrf
                             <div class="form-group">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12 mb-3">
-                            @foreach ($user->roles as $role)
+                            @foreach ($admin->roles as $role)
                                 <span class="badge badge-success">{{$role->name}}</span>
                             @endforeach
                         </div>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12 mb-3">
-                            @foreach ($user->permissions as $permission)
+                            @foreach ($admin->permissions as $permission)
                                 <span class="badge badge-success">{{$permission->name}}</span>
                             @endforeach
                         </div>

@@ -1,17 +1,17 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form method="POST" action="/admin/users">
+    <form method="POST" action="/admin/admins">
         @csrf
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="title-block">
-                            <h4 class="title">Create New user</h4>
+                            <h4 class="title">Create New admin</h4>
                         </div>
-                        @include('laravel-admin::users.form', [
-                            'user' => new App\User(),
+                        @include('laravel-admin::admins.form', [
+                            'admin' => new Devfaysal\LaravelAdmin\Models\Admin(),
                             'buttonText' => 'Create'
                         ])
                         <div class="form-group">

@@ -16,6 +16,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Guard Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -39,6 +40,7 @@
         columns: [
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
+            {data: 'guard_name', name: 'guard_name'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
     });

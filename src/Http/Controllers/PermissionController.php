@@ -30,7 +30,10 @@ class PermissionController extends Controller
             'name' => 'required|unique:permissions',
         ]);
 
-        Permission::create(['name' => $request->name]);
+        Permission::create([
+                'name' => $request->name,
+                'guard_name' => $request->guard_name
+            ]);
         
         Session::flash('message', 'Permission created Successfully!!'); 
         Session::flash('alert-class', 'alert-success');

@@ -1,7 +1,7 @@
 @extends('laravel-admin::layouts.app')
 @section('content')
 <section class="section">
-    <form method="POST" action="/admin/users/{{ $user->id }}">
+    <form method="POST" action="/admin/admins/{{ $admin->id }}">
         @csrf
         @method('PATCH')
         <div class="row sameheight-container">
@@ -9,10 +9,10 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="title-block">
-                            <h4 class="title">Edit user</h4>
+                            <h4 class="title">Edit Admin</h4>
                         </div>
-                        @include('laravel-admin::users.form', [
-                            'user' => $user,
+                        @include('laravel-admin::admins.form', [
+                            'admin' => $admin,
                             'buttonText' => 'Edit'
                         ])
                         <div class="form-group">
@@ -29,7 +29,7 @@
                                 'name' => 'roles',
                                 'label' => 'Roles',
                                 'data' => $roles,
-                                'values' => $user->roles->pluck('name')->toArray()
+                                'values' => $admin->roles->pluck('name')->toArray()
                             ])
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@
                                 'name' => 'permissions',
                                 'label' => 'Permissions',
                                 'data' => $permissions,
-                                'values' => $user->permissions->pluck('name')->toArray()
+                                'values' => $admin->permissions->pluck('name')->toArray()
                             ])
                         </div>
                     </div>
