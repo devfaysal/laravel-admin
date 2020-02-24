@@ -25,21 +25,48 @@ composer require devfaysal/laravel-admin
 
 Then add the following middleware to the ``` $routeMiddleware ``` array in ``` app/Http/kernel.php ```
 ```php
-'admin' => \Devfaysal\LaravelAdmin\Http\Middleware\Admin::class,
+'admin.auth' => \Devfaysal\LaravelAdmin\Http\Middleware\AdminAuthenticate::class,
+'admin.guest' => \Devfaysal\LaravelAdmin\Http\Middleware\AdminRedirectIfAuthenticated::class,
 'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
 'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
 'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 ```
-Update the user mode with the following..
-```php
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\SoftDeletes;
-...
-class User extends Authenticatable
-{
-    use HasRoles, SoftDeletes, Notifiable;
-    ....
-}
+Add Admin Guard by updating ``` config/auth.php ```
+```
+'guards' => [
+        ....
+        ....
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+    ],
+```
+
+```
+'providers' => [
+        ....
+        ....
+        
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => Devfaysal\LaravelAdmin\Models\Admin::class,
+        ],
+    ],
+```
+```
+'passwords' => [
+        ....
+        ....
+
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+    ],
 ```
 
 Publish Assets
