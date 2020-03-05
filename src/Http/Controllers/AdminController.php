@@ -156,7 +156,10 @@ class AdminController extends BaseController
                 }
                 return $string;
             })
-            ->rawColumns(['action', 'roles'])
+            ->addColumn('last_login_at', function($admin) {
+                return $admin->last_login_at ? '<span class="badge badge-success">' . $admin->last_login_at->format('d M Y h:i:s A') . '</span>' : '<span class="badge badge-warning">Never Logged In</span>';
+            })
+            ->rawColumns(['action', 'roles', 'last_login_at'])
             ->make(true);
     }
 }
