@@ -15,8 +15,9 @@
                             'label' => 'Role Name',
                             'value' => null
                         ]) --}}
-                        <x-text name="name" label="Role Name" tooltip="loremsds"/>
+                        <x-text name="name" label="Role Name" tooltip="loremsds" required/>
                         <x-text name="guard_name" label="Guard Name" />
+                        <x-textarea name="guard" label="Guard"/>
                         
                         {{-- @include('laravel-admin::form.text', [
                             'name' => 'guard_name',

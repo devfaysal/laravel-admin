@@ -74,6 +74,15 @@ class LaravelAdminServiceProvider extends ServiceProvider
     public function registerComponents()
     {
         Blade::component('laravel-admin::components.tooltip', 'tooltip');
-        Blade::component('laravel-admin::components.fields.text', 'text');
+        Blade::component('laravel-admin::components.form.textField', 'text-field');
+        Blade::component('laravel-admin::components.form.selectField', 'select-field');
+        Blade::component('laravel-admin::components.form.numberField', 'number-field');
+        Blade::component('laravel-admin::components.form.passwordField', 'password-field');
+        Blade::component('laravel-admin::components.form.textareaField', 'textarea-field');
+        Blade::component('laravel-admin::components.form.hiddenField', 'hidden-field');
+        Blade::component('laravel-admin::components.form.fileField', 'file-field');
+        Blade::component('laravel-admin::components.form.emailField', 'email-field');
+        Blade::component('laravel-admin::components.form.dateField', 'date-field');
+        Blade::component('laravel-admin::components.form.checkboxField', 'checkbox-field');
     }
 }

@@ -4,6 +4,7 @@ use Devfaysal\LaravelAdmin\Http\Controllers\RoleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\UserController;
 use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
 use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
+use Devfaysal\LaravelAdmin\Http\Controllers\ExampleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
 use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 
@@ -15,7 +16,8 @@ Route::middleware(['web'])->prefix('admin')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
 
     Route::group(['middleware' => ['admin.auth:admin','permission:access_admin_dashboard']], function () {
-
+        Route::view('/example', 'laravel-admin::formFields');
+        Route::post('/example', ExampleController::class);
         Route::post('/logout', [LoginController::class, 'logout'])->name('admins.logout');
         
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
