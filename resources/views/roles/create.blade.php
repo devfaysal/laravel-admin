@@ -8,18 +8,21 @@
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="title-block">
-                            <h4 class="title">Create New Role</h4>
+                            <h4 class="title">Create New Role <x-tooltip title="lorem dsdsd"/></h4>
                         </div>
-                        @include('laravel-admin::form.text', [
+                        {{-- @include('laravel-admin::form.text', [
                             'name' => 'name',
                             'label' => 'Role Name',
                             'value' => null
-                        ])
-                        @include('laravel-admin::form.text', [
+                        ]) --}}
+                        <x-text name="name" label="Role Name" tooltip="loremsds"/>
+                        <x-text name="guard_name" label="Guard Name" />
+                        
+                        {{-- @include('laravel-admin::form.text', [
                             'name' => 'guard_name',
                             'label' => 'Guard Name',
                             'value' => null
-                        ])
+                        ]) --}}
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
                         </div>
