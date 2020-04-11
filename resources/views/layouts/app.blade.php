@@ -54,7 +54,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('assets/faces/3.jpg')"></div>
+                                                    <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
@@ -65,7 +65,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('assets/faces/5.jpg')"></div>
+                                                    <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
@@ -76,7 +76,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('assets/faces/8.jpg')"></div>
+                                                    <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
@@ -97,7 +97,7 @@
                             </li>
                             <li class="profile dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')">
+                                    <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})">
                                     </div>
                                     <span class="name"> {{Auth::user()->name}} </span>
                                 </a>

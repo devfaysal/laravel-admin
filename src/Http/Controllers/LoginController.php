@@ -4,7 +4,6 @@ namespace Devfaysal\LaravelAdmin\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -28,7 +27,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    protected function redirectTo()
+    {
+        return route('admins.dashboard');
+    }
 
     /**
      * Create a new controller instance.
@@ -67,6 +69,6 @@ class LoginController extends Controller
 
     protected function loggedOut(Request $request)
     {
-        return redirect('/admin/login');
+        return redirect()->route('admins.login');
     }
 }

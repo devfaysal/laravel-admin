@@ -4,6 +4,7 @@ namespace Devfaysal\LaravelAdmin;
 
 use Orchestra\Testbench\TestCase;
 use Devfaysal\LaravelAdmin\LaravelAdminServiceProvider;
+use Devfaysal\LaravelAdmin\Http\Middleware\AdminAuthenticate;
 
 class LaravelAdminTest extends TestCase
 {
@@ -13,6 +14,8 @@ class LaravelAdminTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        app('router')->aliasMiddleware('admin.guest', AdminAuthenticate::class);
+        config()->set('laravel-admin.path', '/admin');
         $this->loadLaravelMigrations(['--database' => 'testing']);
     }
 
@@ -34,17 +37,17 @@ class LaravelAdminTest extends TestCase
         ];
     }
 
+    /** @test */
+    public function it_returns_correct_route_prefix()
+    {
+        $this->assertEquals(route('admins.login'), $this->baseUrl . '/admin/login');
+    }
 
     /** @test */
-    public function user_can_be_created()
+    public function admin_login_page_can_accessed()
     {
-        //$this->withoutExceptionHandling();
-        $attributes = [
-            'name' => 'Faysal Ahamed',
-            'eamil' => 'faysal@test.com',
-            'password' => 'password',
-        ];
-        $this->post('/admin/users', $attributes);
-        $this->assertDatabaseHas('users', $attributes);
+        $this->withoutExceptionHandling();
+        $response = $this->get('/admin/login');
+        $response->assertStatus(200);
     }
 }

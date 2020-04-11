@@ -1,5 +1,6 @@
 <?php
 
+use Devfaysal\LaravelAdmin\LaravelAdmin;
 use Devfaysal\LaravelAdmin\Http\Controllers\RoleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\UserController;
 use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
@@ -8,7 +9,7 @@ use Devfaysal\LaravelAdmin\Http\Controllers\ExampleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
 use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 
-Route::middleware(['web'])->prefix('admin')->group(function () {
+Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
     Route::get('/', function(){
         return redirect(route('admins.login'));
     });
