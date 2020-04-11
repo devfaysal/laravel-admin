@@ -2,8 +2,10 @@
 
 namespace Devfaysal\LaravelAdmin;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Devfaysal\LaravelAdmin\Components\Text;
 
 class LaravelAdminServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class LaravelAdminServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-admin');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->registerComponents();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -50,6 +53,7 @@ class LaravelAdminServiceProvider extends ServiceProvider
 
             // Registering package commands.
             // $this->commands([]);
+
         }
     }
 
@@ -65,5 +69,20 @@ class LaravelAdminServiceProvider extends ServiceProvider
         $this->app->singleton('laravel-admin', function () {
             return new LaravelAdmin;
         });
+    }
+
+    public function registerComponents()
+    {
+        Blade::component('laravel-admin::components.tooltip', 'tooltip');
+        Blade::component('laravel-admin::components.form.textField', 'text-field');
+        Blade::component('laravel-admin::components.form.selectField', 'select-field');
+        Blade::component('laravel-admin::components.form.numberField', 'number-field');
+        Blade::component('laravel-admin::components.form.passwordField', 'password-field');
+        Blade::component('laravel-admin::components.form.textareaField', 'textarea-field');
+        Blade::component('laravel-admin::components.form.hiddenField', 'hidden-field');
+        Blade::component('laravel-admin::components.form.fileField', 'file-field');
+        Blade::component('laravel-admin::components.form.emailField', 'email-field');
+        Blade::component('laravel-admin::components.form.dateField', 'date-field');
+        Blade::component('laravel-admin::components.form.checkboxField', 'checkbox-field');
     }
 }
