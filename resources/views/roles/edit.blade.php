@@ -11,18 +11,10 @@
                         <div class="title-block">
                             <h4 class="title">Edit Role</h4>
                         </div>
-                        <div class="form-group has-success">
-                            @include('laravel-admin::form.text', [
-                                'name' => 'name',
-                                'label' => 'Role Name',
-                                'value' => $role->name
-                            ])
-                        </div>
-                        @include('laravel-admin::form.text', [
-                            'name' => 'guard_name',
-                            'label' => 'Guard Name',
-                            'value' => $role->guard_name
-                        ])
+
+                        <x-text-field name="name" label="Role Name" :value="$role->name" required/>
+                        <x-text-field name="guard_name" label="Guard Name" :value="$role->guard_name" />
+
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Update">
                         </div>

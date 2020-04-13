@@ -10,20 +10,10 @@
                         <div class="title-block">
                             <h4 class="title">Create New Role <x-tooltip title="lorem dsdsd"/></h4>
                         </div>
-                        {{-- @include('laravel-admin::form.text', [
-                            'name' => 'name',
-                            'label' => 'Role Name',
-                            'value' => null
-                        ]) --}}
-                        <x-text name="name" label="Role Name" tooltip="loremsds" required/>
-                        <x-text name="guard_name" label="Guard Name" />
-                        <x-textarea name="guard" label="Guard"/>
+
+                        <x-text-field name="name" label="Role Name" required/>
+                        <x-text-field name="guard_name" label="Guard Name" />
                         
-                        {{-- @include('laravel-admin::form.text', [
-                            'name' => 'guard_name',
-                            'label' => 'Guard Name',
-                            'value' => null
-                        ]) --}}
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
                         </div>
