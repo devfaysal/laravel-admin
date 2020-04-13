@@ -6,6 +6,7 @@ use Devfaysal\LaravelAdmin\Http\Controllers\UserController;
 use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
 use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
 use Devfaysal\LaravelAdmin\Http\Controllers\ExampleController;
+use Devfaysal\LaravelAdmin\Http\Controllers\PasswordController;
 use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
 use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 
@@ -20,7 +21,8 @@ Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
         Route::view('/example', 'laravel-admin::formFields');
         Route::post('/example', ExampleController::class);
         Route::post('/logout', [LoginController::class, 'logout'])->name('admins.logout');
-        
+        Route::get('/password/change', [PasswordController::class, 'index'])->name('admins.changePassword');
+        Route::patch('/password/change', [PasswordController::class, 'update'])->name('admins.updatePassword');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
 
         Route::group(['middleware' => ['permission:manage_admins']], function(){

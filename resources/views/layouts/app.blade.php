@@ -109,6 +109,9 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-gear icon"></i> Settings </a>
                                     <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{route('admins.changePassword')}}">
+                                        <i class="fa fa-lock icon"></i> Change Password </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/admin/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                         <form id="logout-form" action="/admin/logout" method="POST" style="display: none;">
