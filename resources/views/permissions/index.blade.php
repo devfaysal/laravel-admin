@@ -36,6 +36,7 @@
         order: [[ 0, "desc" ]],
         processing: true,
         serverSide: true,
+        responsive: true,
         ajax: '{{route('permissions.datatable')}}',
         columns: [
             {data: 'id', name: 'id'},
@@ -43,6 +44,9 @@
             {data: 'guard_name', name: 'guard_name'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
+        columnDefs: [
+            { responsivePriority: -1, targets: 3 }
+        ]
     });
 </script>
 @endsection

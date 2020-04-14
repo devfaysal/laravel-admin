@@ -37,6 +37,7 @@
         order: [[ 0, "desc" ]],
         processing: true,
         serverSide: true,
+        responsive: true,
         ajax: '{{route('roles.datatable')}}',
         columns: [
             {data: 'id', name: 'id'},
@@ -45,6 +46,9 @@
             {data: 'permissions', name: 'permissions'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
+        columnDefs: [
+            { responsivePriority: -1, targets: 4 }
+        ]
     });
 </script>
 @endsection

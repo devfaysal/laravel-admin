@@ -11,7 +11,7 @@
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">
-                            <table id="admins-table" class="table table-hover" style="width:100%" class="table table-hover">
+                            <table id="admins-table" class="table table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th class="hide">#</th>
@@ -39,6 +39,7 @@
         order: [[ 0, "desc" ]],
         processing: true,
         serverSide: true,
+        responsive: true,
         ajax: '{{route('admins.datatable')}}',
         columns: [
             {data: 'id', name: 'id'},
@@ -49,6 +50,9 @@
             {data: 'last_login_ip', name: 'last_login_ip'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
+        columnDefs: [
+            { responsivePriority: -1, targets: 6 }
+        ]
     });
 </script>
 @endsection
