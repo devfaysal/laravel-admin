@@ -47,11 +47,20 @@
                                 <a href="" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <sup>
-                                        <span class="counter">8</span>
+                                        <span class="counter">
+                                            @if(View::exists('notifications'))
+                                            {{ Auth::user()->notifications->count() }}
+                                            @else
+                                                8
+                                            @endif
+                                        </span>
                                     </sup>
                                 </a>
                                 <div class="dropdown-menu notifications-dropdown-menu">
                                     <ul class="notifications-container">
+                                        @if(View::exists('notifications'))
+                                            @include('notifications')
+                                        @else
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
@@ -86,11 +95,12 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        @endif
                                     </ul>
                                     <footer>
                                         <ul>
                                             <li>
-                                                <a href=""> View All </a>
+                                                <a href="@if(View::exists('notifications')) {{ route('notifications') }} @endif"> View All </a>
                                             </li>
                                         </ul>
                                     </footer>
