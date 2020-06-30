@@ -43,24 +43,18 @@
                     </div>
                     <div class="header-block header-block-nav">
                         <ul class="nav-profile">
+                            @if(View::exists('notifications'))
+                                @include('notifications')
+                            @else
                             <li class="notifications new">
                                 <a href="" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <sup>
-                                        <span class="counter">
-                                            @if(View::exists('notifications'))
-                                            {{ Auth::user()->notifications->count() }}
-                                            @else
-                                                8
-                                            @endif
-                                        </span>
+                                        <span class="counter">8</span>
                                     </sup>
                                 </a>
                                 <div class="dropdown-menu notifications-dropdown-menu">
                                     <ul class="notifications-container">
-                                        @if(View::exists('notifications'))
-                                            @include('notifications')
-                                        @else
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
@@ -95,17 +89,17 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        @endif
                                     </ul>
                                     <footer>
                                         <ul>
                                             <li>
-                                                <a href="@if(View::exists('notifications')) {{ route('notifications') }} @endif"> View All </a>
+                                                <a href=""> View All </a>
                                             </li>
                                         </ul>
                                     </footer>
                                 </div>
                             </li>
+                            @endif
                             <li class="profile dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})">
