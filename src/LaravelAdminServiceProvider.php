@@ -41,10 +41,10 @@ class LaravelAdminServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../public' => public_path('vendor/laravel-admin'),
             ], 'laravel-admin-public');
-            // Publishing seeds.
+            // Publishing seeders.
             $this->publishes([
-                __DIR__.'/../database/seeds' => database_path('seeds'),
-            ], 'laravel-admin-seeds');
+                __DIR__.'/../database/seeders' => database_path('seeders'),
+            ], 'laravel-admin-seeders');
 
             // Publishing the translation files.
             $this->publishes([

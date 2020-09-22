@@ -1,4 +1,6 @@
 <?php
+namespace Database\Seeders;
+
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Devfaysal\LaravelAdmin\Models\Admin;
