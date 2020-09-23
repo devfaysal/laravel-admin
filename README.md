@@ -76,7 +76,7 @@ php artisan vendor:publish --tag=laravel-admin-public
 
 Publish Seeds
 ```bash
-php artisan vendor:publish --tag=laravel-admin-seeds
+php artisan vendor:publish --tag=laravel-admin-seeders
 ```
 
 Run Migration
