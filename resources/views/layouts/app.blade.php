@@ -30,13 +30,17 @@
                         </button>
                     </div>
                     <div class="header-block header-block-search">
-                        <form role="search">
-                            <div class="input-container">
-                                <i class="fa fa-search"></i>
-                                <input type="search" placeholder="Search">
-                                <div class="underline"></div>
-                            </div>
-                        </form>
+                        @if(View::exists('global_search'))
+                            @include('global_search')
+                        @else
+                            <form role="search">
+                                <div class="input-container">
+                                    <i class="fa fa-search"></i>
+                                    <input type="search" placeholder="Search">
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                        @endif
                     </div>
                     <div class="header-block header-block-buttons">
 
