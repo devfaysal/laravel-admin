@@ -19,6 +19,7 @@ class LaravelAdminSeeder extends Seeder
         Permission::create(['guard_name' => 'admin', 'name' => 'manage_admins']);
         Permission::create(['guard_name' => 'admin', 'name' => 'create_admin']);
         Permission::create(['guard_name' => 'admin', 'name' => 'manage_trashed_admins']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'manage_error_logs']);
         $admin = Admin::create([
                     'name' => 'Faysal Ahamed',
                     'email' => 'hello@faysal.me',
@@ -26,7 +27,7 @@ class LaravelAdminSeeder extends Seeder
                     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                     'remember_token' => Str::random(10),
                 ]);
-        $admin->givePermissionTo(['access_admin_dashboard', 'manage_admins', 'create_admin', 'manage_trashed_admins']);
+        $admin->givePermissionTo(['access_admin_dashboard', 'manage_admins', 'create_admin', 'manage_trashed_admins', 'manage_error_logs']);
     }
 }
 

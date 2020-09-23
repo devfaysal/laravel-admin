@@ -1,14 +1,15 @@
 <?php
 
-use Devfaysal\LaravelAdmin\LaravelAdmin;
+use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
+use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
+use Devfaysal\LaravelAdmin\Http\Controllers\ExampleController;
+use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
+use Devfaysal\LaravelAdmin\Http\Controllers\PasswordController;
+use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
 use Devfaysal\LaravelAdmin\Http\Controllers\RoleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\UserController;
-use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
-use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
-use Devfaysal\LaravelAdmin\Http\Controllers\ExampleController;
-use Devfaysal\LaravelAdmin\Http\Controllers\PasswordController;
-use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
-use Devfaysal\LaravelAdmin\Http\Controllers\PermissionController;
+use Devfaysal\LaravelAdmin\LaravelAdmin;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
     Route::get('/', function(){
@@ -26,6 +27,7 @@ Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
 
         Route::group(['middleware' => ['permission:manage_admins']], function(){
+            Route::get('logs', [LogViewerController::class,'index'])->middleware('permission:manage_error_logs');
 
             //Admins
             Route::get('/admins', [AdminController::class, 'index']);
