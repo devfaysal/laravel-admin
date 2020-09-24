@@ -7,5 +7,11 @@ return [
      */
 
     'prefix' => '/admin',
+
+    /**
+     * Factory Class
+     */
+
+    'factory' => '\Database\Factories\AdminFactory',
     
 ];
