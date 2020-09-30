@@ -18,6 +18,9 @@
             <div class="auth-container">
                 <div class="card">
                     <header class="auth-header">
+                        @if(View::exists('logo'))
+                            @include('logo')
+                        @endif
                         <h1 class="auth-title">
                             {{config('app.name')}}
                         </h1>
