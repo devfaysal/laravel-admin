@@ -1,8 +1,6 @@
 <div class="form-group">
-    @php
-        $attributes['class'] = 'checkbox' .($errors->has($name) ? ' is-invalid':'');
-        $id = isset($id) ? $id : $name;
-    @endphp
+    @props(['name' => '', 'id' => $name, 'value' => '', 'values' => [], 'data' => [], 'label', 'tooltip'])
+    
     <label class="control-label">{{ __($label) }}</label>
 
     @if(isset($tooltip))
@@ -12,7 +10,7 @@
     @foreach ($data as $d)
         <div>
             <label>
-                <input type="checkbox" id="{{ $d }}" name="{{ $name.'[]' }}" {{ in_array($d, old($name, $values)) ? 'checked' : ''}} value="{{ $d }}" {!! prepare_attributes($attributes) !!}>
+                <input type="checkbox" id="{{ $d }}" name="{{ $name.'[]' }}" {{ in_array($d, old($name, $values)) ? 'checked' : ''}} value="{{ $d }}" {{$attributes->merge(['class' => 'checkbox custom-control-input ' . ($errors->has($name) ? ' is-invalid':'')])}}>
                 <span>{{$d}}</span>
             </label>
         </div>

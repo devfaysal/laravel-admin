@@ -84,5 +84,6 @@ class LaravelAdminServiceProvider extends ServiceProvider
         Blade::component('laravel-admin::components.form.emailField', 'email-field');
         Blade::component('laravel-admin::components.form.dateField', 'date-field');
         Blade::component('laravel-admin::components.form.checkboxField', 'checkbox-field');
+        Blade::component('laravel-admin::components.form.checkboxMultiple', 'checkbox-multiple');
     }
 }

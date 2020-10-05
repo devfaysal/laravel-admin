@@ -10,16 +10,8 @@
                         <div class="title-block">
                             <h4 class="title">Create New Permission</h4>
                         </div>
-                        @include('laravel-admin::form.text', [
-                            'name' => 'name',
-                            'label' => 'Permission Name',
-                            'value' => null
-                        ])
-                        @include('laravel-admin::form.text', [
-                            'name' => 'guard_name',
-                            'label' => 'Guard Name',
-                            'value' => null
-                        ])
+                        <x-text-field name="name" label="Permission Name" required/>
+                        <x-text-field name="guard_name" label="Guard Name"/>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
                         </div>

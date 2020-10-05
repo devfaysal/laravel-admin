@@ -23,22 +23,8 @@
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
-                        <div class="form-group">
-                            @include('laravel-admin::form.checkbox-multiple', [
-                                'name' => 'roles',
-                                'label' => 'Roles',
-                                'data' => $roles,
-                                'values' => []
-                            ])
-                        </div>
-                        <div class="form-group">
-                            @include('laravel-admin::form.checkbox-multiple', [
-                                'name' => 'permissions',
-                                'label' => 'Permissions',
-                                'data' => $permissions,
-                                'values' => []
-                            ])
-                        </div>
+                        <x-checkbox-multiple name="roles" label="Roles" :data="$roles" :values="[]"/>
+                        <x-checkbox-multiple name="permissions" label="Permissions" :data="$permissions" :values="[]"/>
                     </div>
                 </div>
             </div>
