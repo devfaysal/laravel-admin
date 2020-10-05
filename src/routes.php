@@ -27,7 +27,7 @@ Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
 
         Route::group(['middleware' => ['permission:manage_admins']], function(){
-            Route::get('logs', [LogViewerController::class,'index'])->middleware('permission:manage_error_logs');
+            Route::get('/errorlogs', [LogViewerController::class,'index'])->middleware('permission:manage_error_logs');
 
             //Admins
             Route::get('/admins', [AdminController::class, 'index']);
