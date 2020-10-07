@@ -1,0 +1,12 @@
+.custom-box{
+    background: #c6f6d5;
+    padding: 10px 0;
+    border-radius: 5px;
+    color: #22543d;
+}
+.custom-box i{
+    color: #38a169;
+}
+.custom-box:hover{
+    background: #9ae6b4;
+}

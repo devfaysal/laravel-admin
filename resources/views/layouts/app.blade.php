@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/dataTables.responsive.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2-bootstrap4.css') }}"/>
+        @stack('styles')
         @if(View::exists('styles'))
             @include('styles')
         @endif
@@ -108,7 +109,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})">
                                     </div>
-                                    <span class="name"> {{Auth::user()->name}} </span>
+                                    <span class="name"> {{Auth::guard('admin')->user()->name}} </span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <a class="dropdown-item" href="#">
