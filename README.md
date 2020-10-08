@@ -114,6 +114,32 @@ For javascript and css, ```javascript.blade.php``` and ```styles.blade.php```
 To update Dashboard, register ```/admin/dashboard``` route and use your own controller and view.
 If you want the current html design, check vendor folder and copy dashboard.blade.php file from ```resource/views``` folder inside the package.
 
+#### Blade components
+Add a stats section component:
+``` php
+<x-laravel-admin::stats-section title="Another title">
+    <x-laravel-admin::stats-item count="50" label="Lorem" icon="fa fa-user"/>
+    <x-laravel-admin::stats-item count="50" label="Lorem"/>
+    <x-laravel-admin::stats-item count="50" label="Lorem"/>
+    <x-laravel-admin::stats-item/>
+</x-laravel-admin::stats-section>
+```
+![stats-section](https://user-images.githubusercontent.com/16212149/95416732-23a7c600-0955-11eb-9de8-6393fe1596e0.png)
+
+Form field components
+``` php
+<x-text-field name="text" value="Some Value" label="Text Field" tooltip="Tooltip" placeholder="lorem"/>
+<x-textarea-field name="textarea" value="Some Text" label="Textarea Field"/>
+<x-select-field name="select" :data="[1,2,3,4,5]" label="Select Field"/>
+<x-password-field name="password" label="Password Field"/>
+<x-number-field name="number" value="5" label="Number Field" min="0"/>
+<x-hidden-field name="hidden"/>
+<x-file-field name="file" label="File Field"/>
+<x-email-field name="email" value="email@example.com" label="Email Field"/>
+<x-date-field name="date" value="2020-12-12" label="Date Field"/>
+<x-checkbox-field name="checkbox" label="Checkbox Field" value="1"/>
+```
+
 ### Testing
 
 ``` bash
