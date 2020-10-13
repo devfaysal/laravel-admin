@@ -1,7 +1,9 @@
 <div class="form-group @error($name) has-error @enderror">
-    @props(['name' => '', 'id' => $name, 'value' => '', 'label', 'tooltip'])
+    @props(['name' => '', 'id' => $name, 'value' => '', 'label' => $label, 'tooltip'])
 
-    <label for="{{ $id }}" class="control-label">{{ __($label) }}</label>
+    @if($label)
+        <label for="{{ $id }}" class="control-label">{{ __($label) }}</label>
+    @endif
 
     @if(isset($tooltip))
         <x-tooltip :title="$tooltip"/>

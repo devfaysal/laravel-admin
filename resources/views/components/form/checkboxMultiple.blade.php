@@ -1,7 +1,9 @@
 <div class="form-group">
-    @props(['name' => '', 'id' => $name, 'value' => '', 'values' => [], 'data' => [], 'label', 'tooltip'])
+    @props(['name' => '', 'id' => $name, 'value' => '', 'values' => [], 'data' => [], 'label' => null, 'tooltip'])
     
-    <label class="control-label">{{ __($label) }}</label>
+    @if($label)
+        <label class="control-label">{{ __($label) }}</label>
+    @endif
 
     @if(isset($tooltip))
         <span class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></span>
