@@ -6,8 +6,7 @@
     <div class="custom-box">
         <div class="stat-icon">
             <i class="{{ $icon }}"></i>
-        </div>
-        <div class="stat">
+        </div><div class="stat">
             <div class="value"> {{ $count }} </div>
             <div class="name"> {{ $label }} </div>
         </div>
