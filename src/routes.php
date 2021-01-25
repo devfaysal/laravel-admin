@@ -26,6 +26,13 @@ Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
         Route::patch('/password/change', [PasswordController::class, 'update'])->name('admins.updatePassword');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
 
+        Route::get('/profile', function(){
+            return abort(404);
+        })->name('admins.profile');
+        Route::get('/settings', function(){
+            return abort(404);
+        })->name('admins.settings');
+
         Route::group(['middleware' => ['permission:manage_admins']], function(){
             Route::get('/errorlogs', [LogViewerController::class,'index'])->middleware('permission:manage_error_logs');
 

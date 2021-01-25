@@ -112,11 +112,9 @@
                                     <span class="name"> {{Auth::guard('admin')->user()->name}} </span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{route('admins.profile')}}">
                                         <i class="fa fa-user icon"></i> Profile </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-bell icon"></i> Notifications </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{route('admins.settings')}}">
                                         <i class="fa fa-gear icon"></i> Settings </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{route('admins.changePassword')}}">
@@ -143,7 +141,7 @@
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
                                 <li class="">
                                     <a href="/admin/dashboard">
-                                        <i class="fa fa-th-large"></i> Dashboard </a>
+                                        <i class="fa fa-th-large"></i> {{ __('Dashboard') }} </a>
                                 </li>
                                 @if(View::exists('menus'))
                                     @include('menus')
@@ -155,13 +153,13 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li class="{{(request()->is('admin/permissions*')) ? 'active' : '' }}">
-                                            <a href="/admin/permissions"> <i class="fa fa-key"> </i> Permissions </a>
+                                            <a href="/admin/permissions"> <i class="fa fa-key"> </i> {{ __('Permissions') }} </a>
                                         </li>
                                         <li class="{{(request()->is('admin/roles*')) ? 'active' : '' }}">
-                                            <a href="/admin/roles"> <i class="fa fa-briefcase"> </i> Roles </a>
+                                            <a href="/admin/roles"> <i class="fa fa-briefcase"> </i> {{ __('Roles') }} </a>
                                         </li>
                                         <li class="{{(request()->is('admin/admins*')) ? 'active' : '' }}">
-                                            <a href="/admin/admins"> <i class="fa fa-users"> </i> Admins </a>
+                                            <a href="/admin/admins"> <i class="fa fa-users"> </i> {{ __('Admins') }} </a>
                                         </li>
                                     </ul>
                                 </li>
