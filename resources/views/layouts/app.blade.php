@@ -306,6 +306,16 @@
         <script src="{{ asset('vendor/laravel-admin/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/select2.min.js') }}"></script>
+        <script>
+            function searchable_select(selector){
+                $(selector).select2({
+                    theme: 'bootstrap4',
+                    width: 'style',
+                    placeholder: $(this).attr('placeholder'),
+                    allowClear: Boolean($(this).data('allow-clear')),
+                });
+            }
+        </script>
         @if(View::exists('javascripts'))
             @include('javascripts')
         @endif

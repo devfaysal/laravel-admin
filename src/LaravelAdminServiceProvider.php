@@ -2,10 +2,11 @@
 
 namespace Devfaysal\LaravelAdmin;
 
+use Devfaysal\LaravelAdmin\Components\Text;
+use Devfaysal\LaravelAdmin\Models\Admin;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Devfaysal\LaravelAdmin\Components\Text;
 
 class LaravelAdminServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class LaravelAdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->configure();
         /*
          * Optional methods to load your package assets
          */
@@ -75,15 +77,39 @@ class LaravelAdminServiceProvider extends ServiceProvider
     {
         Blade::component('laravel-admin::components.tooltip', 'tooltip');
         Blade::component('laravel-admin::components.form.textField', 'text-field');
-        Blade::component('laravel-admin::components.form.selectField', 'select-field');
-        Blade::component('laravel-admin::components.form.numberField', 'number-field');
-        Blade::component('laravel-admin::components.form.passwordField', 'password-field');
-        Blade::component('laravel-admin::components.form.textareaField', 'textarea-field');
         Blade::component('laravel-admin::components.form.hiddenField', 'hidden-field');
-        Blade::component('laravel-admin::components.form.fileField', 'file-field');
+        Blade::component('laravel-admin::components.form.numberField', 'number-field');
         Blade::component('laravel-admin::components.form.emailField', 'email-field');
+        Blade::component('laravel-admin::components.form.textareaField', 'textarea-field');
+        Blade::component('laravel-admin::components.form.passwordField', 'password-field');
+        Blade::component('laravel-admin::components.form.selectField', 'select-field');
+        Blade::component('laravel-admin::components.form.selectMultipleField', 'select-multiple-field');
+        Blade::component('laravel-admin::components.form.fileField', 'file-field');
         Blade::component('laravel-admin::components.form.dateField', 'date-field');
         Blade::component('laravel-admin::components.form.checkboxField', 'checkbox-field');
+        Blade::component('laravel-admin::components.form.radioField', 'radio-field');
         Blade::component('laravel-admin::components.form.checkboxMultiple', 'checkbox-multiple');
+    }
+
+    public function configure()
+    {
+        $this->app->booted(function () {
+            $this->app['config']->set('auth.guards.admin', [
+                'driver' => 'session',
+                'provider' => 'admins',
+            ]);
+
+            $this->app['config']->set('auth.passwords.admins', [
+                'provider' => 'admins',
+                'table' => 'password_resets',
+                'expire' => 60,
+                'throttle' => 60,
+            ]);
+
+            $this->app['config']->set('auth.providers.admins', [
+                'driver' => 'eloquent',
+                'model' => Admin::class,
+            ]);
+        });
     }
 }
