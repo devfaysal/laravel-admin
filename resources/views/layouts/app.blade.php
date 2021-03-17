@@ -16,9 +16,10 @@
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/dataTables.responsive.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/select2-bootstrap4.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/jquery-ui.css') }}"/>
         @stack('styles')
-        @if(View::exists('styles'))
-            @include('styles')
+        @if(View::exists('laravel-admin-custom-views.styles'))
+            @include('laravel-admin-custom-views.styles')
         @endif
     </head>
     <body>
@@ -31,8 +32,8 @@
                         </button>
                     </div>
                     <div class="header-block header-block-search">
-                        @if(View::exists('global_search'))
-                            @include('global_search')
+                        @if(View::exists('laravel-admin-custom-views.global_search'))
+                            @include('laravel-admin-custom-views.global_search')
                         @else
                             <form role="search">
                                 <div class="input-container">
@@ -48,8 +49,8 @@
                     </div>
                     <div class="header-block header-block-nav">
                         <ul class="nav-profile">
-                            @if(View::exists('notifications'))
-                                @include('notifications')
+                            @if(View::exists('laravel-admin-custom-views.notifications'))
+                                @include('laravel-admin-custom-views.notifications')
                             @else
                             <li class="notifications new">
                                 <a href="" data-toggle="dropdown">
@@ -112,11 +113,9 @@
                                     <span class="name"> {{Auth::guard('admin')->user()->name}} </span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="{{route('admins.profile')}}">
-                                        <i class="fa fa-user icon"></i> Profile </a>
-                                    <a class="dropdown-item" href="{{route('admins.settings')}}">
-                                        <i class="fa fa-gear icon"></i> Settings </a>
-                                    <div class="dropdown-divider"></div>
+                                    @if(View::exists('laravel-admin-custom-views.user_menu'))
+                                        @include('laravel-admin-custom-views.user_menu')
+                                    @endif
                                     <a class="dropdown-item" href="{{route('admins.changePassword')}}">
                                         <i class="fa fa-lock icon"></i> Change Password </a>
                                     <div class="dropdown-divider"></div>
@@ -143,8 +142,8 @@
                                     <a href="/admin/dashboard">
                                         <i class="fa fa-th-large"></i> {{ __('Dashboard') }} </a>
                                 </li>
-                                @if(View::exists('menus'))
-                                    @include('menus')
+                                @if(View::exists('laravel-admin-custom-views.menus'))
+                                    @include('laravel-admin-custom-views.menus')
                                 @endif
                                 @can('manage_admins')
                                 <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/admins*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
@@ -306,6 +305,7 @@
         <script src="{{ asset('vendor/laravel-admin/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('vendor/laravel-admin/js/select2.min.js') }}"></script>
+        <script src="{{ asset('vendor/laravel-admin/js/jquery-ui.js') }}"></script>
         <script>
             function searchable_select(selector){
                 $(selector).select2({
@@ -315,9 +315,17 @@
                     allowClear: Boolean($(this).data('allow-clear')),
                 });
             }
+            $(function() {
+                $( ".datepicker" ).datepicker({ 
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd-mm-yy',
+                    yearRange: '1900:2100'
+                });
+            });
         </script>
-        @if(View::exists('javascripts'))
-            @include('javascripts')
+        @if(View::exists('laravel-admin-custom-views.javascripts'))
+            @include('laravel-admin-custom-views.javascripts')
         @endif
         @yield('javascript')
     </body>

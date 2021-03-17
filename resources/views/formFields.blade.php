@@ -20,8 +20,10 @@
                         <x-file-field name="file" label="File Field"/>
                         <x-email-field name="email" value="email@example.com" label="Email Field"/>
                         <x-date-field name="date" value="2020-12-12" label="Date Field"/>
+                        <x-date-picker-field name="datepicker" value="2020-12-12" label="Datepicker Field"/>
                         <x-checkbox-field name="checkbox" label="Checkbox Field" value="1"/>
                         <x-radio-field name="radio" label="Radio Field" :data="[1 => 'Lorem',  2 => 'ipsum', 3 => 'dolor']"/>
+                        <x-checkbox-multiple name="permissions" label="Permissions" :data="['Access Dashboard', 'Create Users','Update Users', 'Delete User']" :values="[]"/>
 
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
