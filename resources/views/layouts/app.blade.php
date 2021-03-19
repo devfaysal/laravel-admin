@@ -10,7 +10,6 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/vendor.css') }}">
-        <!-- Theme initialization -->
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/dataTables.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('vendor/laravel-admin/css/dataTables.responsive.min.css') }}"/>
@@ -233,28 +232,6 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="customize-item">
-                                            <ul class="customize-colors">
-                                                <li>
-                                                    <span class="color-item color-red" data-theme="red"></span>
-                                                </li>
-                                                <li>
-                                                    <span class="color-item color-orange" data-theme="orange"></span>
-                                                </li>
-                                                <li>
-                                                    <span class="color-item color-green active" data-theme=""></span>
-                                                </li>
-                                                <li>
-                                                    <span class="color-item color-seagreen" data-theme="seagreen"></span>
-                                                </li>
-                                                <li>
-                                                    <span class="color-item color-blue" data-theme="blue"></span>
-                                                </li>
-                                                <li>
-                                                    <span class="color-item color-purple" data-theme="purple"></span>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </li>
                                 </ul>

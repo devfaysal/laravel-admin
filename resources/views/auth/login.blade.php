@@ -18,8 +18,8 @@
             <div class="auth-container">
                 <div class="card">
                     <header class="auth-header">
-                        @if(View::exists('logo'))
-                            @include('logo')
+                        @if(View::exists('laravel-admin-custom-views.logo'))
+                            @include('laravel-admin-custom-views.logo')
                         @endif
                         <h1 class="auth-title">
                             {{config('app.name')}}
