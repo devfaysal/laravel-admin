@@ -18,7 +18,6 @@
     "require": {
         "php": "^7.3",
         "illuminate/support": "^8.0",
-        "laravel/ui": "^3.0",
         "rap2hpoutre/laravel-log-viewer": "^1.7",
         "spatie/laravel-permission": "^3.2",
         "yajra/laravel-datatables-oracle": "^9.0"

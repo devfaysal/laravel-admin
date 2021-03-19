@@ -1,6 +1,7 @@
 <?php
 
 use Devfaysal\LaravelAdmin\Http\Controllers\AdminController;
+use Devfaysal\LaravelAdmin\Http\Controllers\Auth\AuthenticatedSessionController;
 use Devfaysal\LaravelAdmin\Http\Controllers\DashboardController;
 use Devfaysal\LaravelAdmin\Http\Controllers\ExampleController;
 use Devfaysal\LaravelAdmin\Http\Controllers\LoginController;
@@ -15,13 +16,14 @@ Route::middleware(['web'])->prefix(LaravelAdmin::prefix())->group(function () {
     Route::get('/', function(){
         return redirect(route('admins.login'));
     });
-    Route::get('/login', [LoginController::class, 'show'])->name('admins.login');
-    Route::post('/login', [LoginController::class, 'login']);
+
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->middleware('admin.guest:admin')->name('admins.login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('admin.guest:admin');
 
     Route::group(['middleware' => ['admin.auth:admin','permission:access_admin_dashboard']], function () {
         Route::view('/example', 'laravel-admin::formFields');
         Route::post('/example', ExampleController::class);
-        Route::post('/logout', [LoginController::class, 'logout'])->name('admins.logout');
+        Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admins.logout');
         Route::get('/password/change', [PasswordController::class, 'index'])->name('admins.changePassword');
         Route::patch('/password/change', [PasswordController::class, 'update'])->name('admins.updatePassword');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
