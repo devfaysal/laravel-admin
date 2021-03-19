@@ -31,43 +31,6 @@ Then add the following middleware to the ``` $routeMiddleware ``` array in ``` a
 'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
 'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 ```
-Add Admin Guard by updating ``` config/auth.php ```
-```
-'guards' => [
-        ....
-        ....
-
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
-    ],
-```
-
-```
-'providers' => [
-        ....
-        ....
-        
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => Devfaysal\LaravelAdmin\Models\Admin::class,
-        ],
-    ],
-```
-```
-'passwords' => [
-        ....
-        ....
-
-        'admins' => [
-            'provider' => 'admins',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
-    ],
-```
 
 Publish Assets
 ```bash
