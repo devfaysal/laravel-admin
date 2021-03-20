@@ -107,9 +107,13 @@
                             @endif
                             <li class="profile dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    @if(View::exists('laravel-admin-custom-views.user_name_image'))
+                                        @include('laravel-admin-custom-views.user_name_image')
+                                    @else
                                     <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})">
                                     </div>
                                     <span class="name"> {{Auth::guard('admin')->user()->name}} </span>
+                                    @endif
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     @if(View::exists('laravel-admin-custom-views.user_menu'))
