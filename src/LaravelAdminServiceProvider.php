@@ -86,7 +86,7 @@ class LaravelAdminServiceProvider extends ServiceProvider
         Blade::component('laravel-admin::components.form.selectMultipleField', 'select-multiple-field');
         Blade::component('laravel-admin::components.form.fileField', 'file-field');
         Blade::component('laravel-admin::components.form.dateField', 'date-field');
-        Blade::component('laravel-admin::components.form.datePickerField', 'date-picker-field');
+        Blade::component('laravel-admin::components.form.jQueryUidatePickerField', 'jqueryui-date-picker-field');
         Blade::component('laravel-admin::components.form.checkboxField', 'checkbox-field');
         Blade::component('laravel-admin::components.form.radioField', 'radio-field');
         Blade::component('laravel-admin::components.form.checkboxMultiple', 'checkbox-multiple');

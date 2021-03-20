@@ -297,7 +297,7 @@
                 });
             }
             $(function() {
-                $( ".datepicker" ).datepicker({ 
+                $( ".jQueryUiDatepicker" ).datepicker({ 
                     changeMonth: true,
                     changeYear: true,
                     dateFormat: 'dd-mm-yy',

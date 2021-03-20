@@ -9,7 +9,7 @@
         <x-tooltip :title="$tooltip"/>
     @endif
 
-    <input type="text" id="{{ $id }}" name="{{ $name }}" value="{{ old($name, $value) }}" {{ $attributes->merge(['class' => 'form-control datepicker' . ($errors->has($name) ? ' is-invalid':'')]) }}>
+    <input type="text" id="{{ $id }}" name="{{ $name }}" value="{{ old($name, $value) }}" {{ $attributes->merge(['class' => 'form-control jQueryUiDatepicker' . ($errors->has($name) ? ' is-invalid':'')]) }}>
     @error($name)
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
