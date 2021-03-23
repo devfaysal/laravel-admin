@@ -141,10 +141,6 @@
                         </div>
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                                <li class="">
-                                    <a href="/admin/dashboard">
-                                        <i class="fa fa-th-large"></i> {{ __('Dashboard') }} </a>
-                                </li>
                                 @if(View::exists('laravel-admin-custom-views.menus'))
                                     @include('laravel-admin-custom-views.menus')
                                 @endif
