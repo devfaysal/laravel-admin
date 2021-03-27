@@ -118,7 +118,7 @@
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     @if(View::exists('laravel-admin-custom-views.user_menu'))
                                         @include('laravel-admin-custom-views.user_menu')
-                                    @endif
+                                    @else
                                     <a class="dropdown-item" href="{{route('admins.changePassword')}}">
                                         <i class="fa fa-lock icon"></i> Change Password </a>
                                     <div class="dropdown-divider"></div>
@@ -127,6 +127,7 @@
                                         <form id="logout-form" action="/admin/logout" method="POST" style="display: none;">
                                             @csrf
                                         </form>
+                                    @endif
                                 </div>
                             </li>
                         </ul>
