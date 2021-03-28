@@ -146,7 +146,7 @@
                                     @include('laravel-admin-custom-views.menus')
                                 @endif
                                 @can('manage_admins')
-                                <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/admins*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
+                                <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/admins*')) ? 'active open' : '' }}" >
                                     <a href="">
                                         <i class="fa fa-users"></i> {{__('laravel-admin::sidebar.admin_management')}} <i class="fa arrow"></i>
                                     </a>
