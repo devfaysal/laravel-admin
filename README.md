@@ -1,5 +1,3 @@
-# This package is in very early stage, I do not recommend to use in production application yet.
-
 # Roles/Permission UI for Laravel Application
 
 ![Screenshot_2019-12-20 Laravel](https://user-images.githubusercontent.com/16212149/73057065-c3eab700-3eba-11ea-802a-1f564d3af4ad.png)
