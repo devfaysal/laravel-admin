@@ -8,7 +8,11 @@
     @if(isset($tooltip))
         <span class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></span>
     @endif
-    
+    @error($name)
+        <span style="font-size:80%" class="text-danger" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
     @foreach ($data as $d)
         <div>
             <label>
