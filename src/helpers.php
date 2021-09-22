@@ -17,7 +17,7 @@ if (! function_exists('prepare_attributes')) {
 
 if (! function_exists('prepare_options')) {
 
-    function prepare_options($data, $selected)
+    function prepare_options($data, $selected, $livewire = false)
     {
         if($data instanceof Illuminate\Support\Collection){
             $data = $data->toArray();
@@ -29,18 +29,26 @@ if (! function_exists('prepare_options')) {
         
         if(array_values($data) !== $data){
             foreach($data as $key => $value){
-                if(in_array($key, $selected)){
-                    $options_html .= '<option selected="selected" value="'. $key .'">'. $value.'</option>';
-                }else{
-                    $options_html .= '<option value="'. $key .'">'. $value.'</option>';
+                if ($livewire) {
+                    $options_html .= '<option wire:key="' . $livewire . $key . '" value="' . $key . '">' . $value . '</option>';
+                } else {
+                    if (in_array($key, $selected)) {
+                        $options_html .= '<option selected="selected" value="' . $key . '">' . $value . '</option>';
+                    } else {
+                        $options_html .= '<option value="' . $key . '">' . $value . '</option>';
+                    }
                 }
             }
         }else{
             foreach($data as $key){
-                if(in_array($key, $selected)){
-                    $options_html .= '<option selected="selected" value="'. $key .'">'. $key.'</option>';
-                }else{
-                    $options_html .= '<option value="'. $key .'">'. $key.'</option>';
+                if ($livewire) {
+                    $options_html .= '<option wire:key="' . $livewire . $key  . '" value="' . $key . '">' . $key . '</option>';
+                } else {
+                    if (in_array($key, $selected)) {
+                        $options_html .= '<option selected="selected" value="' . $key . '">' . $key . '</option>';
+                    } else {
+                        $options_html .= '<option value="' . $key . '">' . $key . '</option>';
+                    }
                 }
             }
         }
