@@ -110,7 +110,7 @@
                                     @if(View::exists('laravel-admin-custom-views.user_name_image'))
                                         @include('laravel-admin-custom-views.user_name_image')
                                     @else
-                                    <div class="img" style="background-image: url({{asset('vendor/laravel-admin/images/person.jpg')}})">
+                                    <div class="img" style="background-image: url('https://www.gravatar.com/avatar/{{ md5(Auth::guard('admin')->user()->email)}}')">
                                     </div>
                                     <span class="name"> {{Auth::guard('admin')->user()->name}} </span>
                                     @endif
