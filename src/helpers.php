@@ -2,8 +2,12 @@
 
 if (! function_exists('prepare_attributes')) {
 
-    function prepare_attributes(array $attributes)
+    function prepare_attributes($attributes)
     {
+        if ($attributes instanceof \Illuminate\View\ComponentAttributeBag) {
+            $attributes = $attributes->getAttributes();
+        }
+        
         $attributes_string = '';
         
         foreach($attributes as $key => $value){
